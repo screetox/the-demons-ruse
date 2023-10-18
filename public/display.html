@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <title>The Demon's Ruse</title>
+</head>
+
+<body>
+    <div id="title">
+        <img src="img/demon.png">
+        <h1 id="h1">The Demon's Ruse</h1>
+    </div>
+
+    <div id="points">
+        <div id="user-points-row1">Loading first row...</div>
+        <div id="user-points-row2">Loading second row...</div>
+    </div>
+
+    <style>
+    * {
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+
+        cursor: none;
+    }
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/display.js"></script>
+</body>
+
+</html>

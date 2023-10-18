@@ -1,0 +1,21 @@
+{
+    "name": "the-demons-ruse",
+    "version": "1.0.0",
+    "description": "tool for a good time with friends at The Demon's Ruse",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server",
+        "dev": "nodemon server"
+    },
+    "author": "David Felder",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.1",
+        "fs": "^0.0.1-security",
+        "semver": "^7.5.3",
+        "socket.io": "^4.6.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.19"
+    }
+}

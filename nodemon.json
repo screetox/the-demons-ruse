@@ -1,0 +1,4 @@
+{
+    "ignore": ["public/img/*", "node_modules/*", "package-lock.json", "package.json"],
+    "ext": "js,html,css"
+}

@@ -1,8 +1,6 @@
 const socket = io();
 const testInput = document.getElementById('test-input');
 
-window.history.replaceState('', `The Demon's Ruse`, '/');
-
 // Login
 socket.emit('start-controller');
 
@@ -12,16 +10,23 @@ socket.on('welcomeMessage', (message) => {
 });
 
 // For testing purpose
-function sendTestMessage() {
-    const command = testInput.value;
+function sendTestMessage(command = testInput.value) {
     sendCommand(command);
 }
 
 // Send updated list of users
 function sendUserList() {
     const userList = [
-        {name: 'Markus', points: 19}, {name: 'Linus', points: 17}, {name: 'Maxi', points: 15}, {name: 'Stefan', points: 13},
-        {name: 'Julie', points: 11}, {name: 'Elisa', points: 9}, {name: 'Enrico', points: 7}, {name: 'Josie', points: 5}
+        {name: 'Markus', points: 19},
+        {name: 'Linus', points: 17},
+        {name: 'Maxi', points: 15},
+        {name: 'Stefan', points: 13},
+        {name: 'Julie', points: 11},
+        {name: 'Elisa', points: 9},
+        {name: 'Enrico', points: 7},
+        {name: 'Josie', points: 5},
+        {name: '9', points: 3},
+        {name: '10', points: 1}
     ];
     sendCommand('update-user-list', userList);
 }

@@ -12,6 +12,7 @@
 * {
     margin: 0;
     padding: 0;
+
     font-family: 'Fondamento', cursive;
     color: #fff;
 }
@@ -31,8 +32,18 @@ input {
 }
 
 h1 {
-    line-height: 230px;
-    font-size: 150px;
+    line-height: 128px;
+    font-size: 128px;
+}
+
+h2 {
+    line-height: 64px;
+    font-size: 64px;
+}
+
+h3 {
+    line-height: 32px;
+    font-size: 32px;
 }
 
 a, button {
@@ -40,25 +51,58 @@ a, button {
 }
 
 button {
-    font-size: 65px;
-    padding: 15px 35px;
+    font-size: 64px;
+    padding: 16px 32px;
     background: var(--button-color);
     color: #fff;
     border: 1px solid #fff;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 button:hover {
     background: var(--button-hover-color);
 }
 
-#login, #title {
-    min-height: 100%;
+.h100 {
+    height: 100%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.m32 {
+    margin: 32px;
+}
+
+.flex {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.g32 {
+    gap: 32px;
+}
+
+.g16 {
+    gap: 16px;
+}
+
+.shadow {
+    -webkit-filter: drop-shadow(5px 5px 5px #000);
+    filter: drop-shadow(5px 5px 5px #000);
+}
+
+.player-image {
+    width: 256px;
+    height: 256px;
+    border-radius: 128px;
+    margin-bottom: 12px;
 }
 
 #points {

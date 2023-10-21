@@ -51,7 +51,7 @@ h3 {
     font-size: 32px;
 }
 
-a, button {
+a, button, .player-radio-button-label {
     cursor: pointer;
 }
 
@@ -76,6 +76,17 @@ input {
     border: 1px solid #fff;
 }
 
+hr {
+    width: 96vw;
+    margin: 32px 0;
+    border: 1px solid #fff;
+}
+
+.vr {
+    margin: 0 32px;
+    border: 1px solid #fff;
+}
+
 .h100 {
     height: 100%;
 }
@@ -88,8 +99,37 @@ input {
     width: 100%;
 }
 
+.w32 {
+    width: 32px;
+}
+
 .m32 {
     margin: 32px;
+}
+
+.m16 {
+    margin: 16px;
+}
+
+.tl-btn {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.br-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}
+
+.big-btn {
+    font-size: 48px;
+    padding: 8px 16px;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .flex {
@@ -100,6 +140,14 @@ input {
 
 .column {
     flex-direction: column;
+}
+
+.stretch {
+    align-items: stretch;
+}
+
+.g64 {
+    gap: 64px;
 }
 
 .g32 {
@@ -120,6 +168,24 @@ input {
     height: 256px;
     border-radius: 128px;
     margin-bottom: 12px;
+}
+
+.player-radio-button {
+    display: none;
+}
+
+.player-radio-button:checked + .player-radio-button-label {
+    filter: brightness(100%);
+}
+
+.player-radio-button-label {
+    width: 96px;
+    height: 96px;
+    border-radius: 48px;
+
+    background-color: var(--button-color);
+    background-size: cover;
+    filter: brightness(50%);
 }
 
 #title {

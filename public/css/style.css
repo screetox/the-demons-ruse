@@ -1,4 +1,9 @@
+/* FONTS */
+
 @import url('fondamento.css');
+
+
+/* STYLING */
 
 :root {
     --dark-color-a: #1bb0d1;
@@ -27,10 +32,6 @@ body {
     background-size: cover;
 }
 
-input {
-    background-color: #000;
-}
-
 h1 {
     line-height: 128px;
     font-size: 128px;
@@ -51,8 +52,8 @@ a, button {
 }
 
 button {
-    font-size: 64px;
-    padding: 16px 32px;
+    font-size: 32px;
+    padding: 8px 16px;
     background: var(--button-color);
     color: #fff;
     border: 1px solid #fff;
@@ -63,8 +64,19 @@ button:hover {
     background: var(--button-hover-color);
 }
 
+input {
+    background-color: #000;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+}
+
 .h100 {
     height: 100%;
+}
+
+.h100vh {
+    min-height:100vh
 }
 
 .w100 {
@@ -105,6 +117,41 @@ button:hover {
     margin-bottom: 12px;
 }
 
+#title {
+    order: 0;
+}
+
 #points {
-    display: none;
+    order: 1;
+}
+
+
+/* ANIMATIONS */
+
+*[id^='section'] {
+    opacity: 1;
+    animation: fade-in 1s ease-in-out;
+}
+
+.opacity0animation {
+    opacity: 0;
+    animation: fade-out 1s ease-in-out;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }

@@ -58,15 +58,15 @@ socket.on('update-user-points', ({username, amount}) => {
 // Switch to title view
 socket.on('show-title', () => {
     fadeOutAll();
-    setTimeout(changeSectionOrder, 1000, 'title');
-    setTimeout(fadeInAll, 1100);
+    setTimeout(changeSectionOrder, 500, 'title');
+    setTimeout(fadeInAll, 600);
 });
 
 // Switch to points  overwiev
 socket.on('show-points', () => {
     fadeOutAll();
-    setTimeout(changeSectionOrder, 1000, 'points');
-    setTimeout(fadeInAll, 1100);
+    setTimeout(changeSectionOrder, 500, 'points');
+    setTimeout(fadeInAll, 600);
 });
 
 // Change section order

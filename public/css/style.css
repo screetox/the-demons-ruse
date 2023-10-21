@@ -1,33 +1,37 @@
 /* FONTS */
 
+/* TODO - delete one font */
 @import url('fondamento.css');
+@import url('julee.css');
 
 
 /* STYLING */
 
 :root {
-    --dark-color-a: #1bb0d1;
-    --dark-color-b: #6dcbe1;
-    --light-color: #edfcff;
+    --dark-color-a: #5555aa;
+    --dark-color-b: #7777cc;
+    --light-color: #ededff;
     --button-color: #000;
-    --button-hover-color: #222;
-    --dark-color-a-transparent: rgba(27, 176, 209, 0.4);
+    --button-hover-color: #333;
+    --dark-color-a-transparent: #5555aa66;
 }
 
 * {
     margin: 0;
     padding: 0;
 
-    font-family: 'Fondamento', cursive;
+    /* TODO - delete one font */
+    /* font-family: 'Fondamento', cursive; */
+    font-family: 'Julee', cursive;
     color: #fff;
 }
 
 html, body {
     height: 100%;
-    overflow: hidden;
 }
 
 body {
+    background-color: #000;
     background-image: url(/img/background.png);
     background-size: cover;
 }
@@ -52,12 +56,13 @@ a, button {
 }
 
 button {
-    font-size: 32px;
-    padding: 8px 16px;
+    font-size: 24px;
+    padding: 6px 12px;
     background: var(--button-color);
     color: #fff;
     border: 1px solid #fff;
     border-radius: 8px;
+    transition: 0.5s;
 }
 
 button:hover {
@@ -65,9 +70,9 @@ button:hover {
 }
 
 input {
+    font-size: 16px;
     background-color: #000;
     padding: 8px 16px;
-    border-radius: 8px;
     border: 1px solid #fff;
 }
 
@@ -76,7 +81,7 @@ input {
 }
 
 .h100vh {
-    min-height:100vh
+    min-height: 100vh;
 }
 
 .w100 {
@@ -128,14 +133,14 @@ input {
 
 /* ANIMATIONS */
 
-*[id^='section'] {
+*[id^='section-'] {
     opacity: 1;
-    animation: fade-in 1s ease-in-out;
+    animation: fade-in 0.5s ease-in-out;
 }
 
 .opacity0animation {
     opacity: 0;
-    animation: fade-out 1s ease-in-out;
+    animation: fade-out 0.5s ease-in-out;
 }
 
 @keyframes fade-in {

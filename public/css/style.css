@@ -58,6 +58,8 @@ a, button, .player-radio-button-label {
 
 button {
     font-size: 24px;
+    width: 196px;
+    height: 46px;
     padding: 6px 12px;
     background: var(--button-color);
     color: #fff;
@@ -96,8 +98,20 @@ hr {
     min-height: 100vh;
 }
 
+.h32 {
+    height: 32px;
+}
+
 .w100 {
     width: 100%;
+}
+
+.w64 {
+    width: 64px;
+}
+
+.w46 {
+    width: 46px;
 }
 
 .w32 {
@@ -131,6 +145,10 @@ hr {
 
 .text-center {
     text-align: center;
+}
+
+.relative {
+    position: relative;
 }
 
 .flex {
@@ -189,12 +207,46 @@ hr {
     filter: brightness(50%);
 }
 
+.point-animation {
+    text-align: center;
+    overflow: visible;
+}
+
+.point-animation h3 {
+    overflow: visible;
+    width: 36px;
+    height: 36px;
+}
+
+span[id$='-points'] {
+    position: absolute;
+    text-align: end;
+    transition: transform 0.5s ease-in, opacity 0.4s ease-in;
+}
+
+span[id$='-new-points'] {
+    opacity: 0;
+    transform: translate(-50%, 0px);
+}
+
+span[id$='-current-points'] {
+    transform: translate(-50%, 0px);
+}
+
 #title {
     order: 0;
 }
 
 #points {
     order: 1;
+}
+
+#user-point-config {
+    position: absolute;
+    right: 12px;
+    padding: 36px;
+    background-color: #0006;
+    border-radius: 36px;
 }
 
 

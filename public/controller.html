@@ -9,15 +9,22 @@
     <title>The Demon's Ruse</title>
 </head>
 
-<body>
-    <input id="test-input">
-    <button onclick="sendTestMessage()"></button>
+<body class="flex column g32" onload="setup()">
+    <div class="flex g16">
+        <input id="custom-input">
+        <button class="w46" onclick="sendControllerMessage()">↩</button>
+    </div>
 
-    <button onclick="sendTestMessage('show-title')">show-title</button>
-    <button onclick="sendTestMessage('show-points')">show-points</button>
+    <button onclick="sendControllerMessage('show-title')">show-title</button>
+    <button onclick="sendControllerMessage('show-points')">show-points</button>
     <button onclick="sendUserList()">send-users</button>
-    <button onclick="updateUserPoints()">update-user-points</button>
-    <a href="/secret-number.html" target="_blank"><button>secret-number.html</button></a>
+
+    <div id="user-point-config" class="flex column g16">
+        <button onclick="updateUserPoints()">update points</button>
+    </div>
+    <a href="/secret-number.html" target="_blank"><button>secret-number*</button></a>
+
+    <p>* = opens in new tab</p>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/controller.js"></script>

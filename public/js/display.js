@@ -42,16 +42,65 @@ function addUserDiv(user) {
     <div class="flex column g16 m32">
         <img src="/img/testimgs/${user.name.toLowerCase()}.jpg" class="player-image">
         <h3>${user.name}</h3>
-        <h3><span id="${user.name.toLowerCase()}-points" style="position: relative; top: -4px;">${user.points}</span> &#10022;</h3>
+        <div class="flex point-animation">
+            <h3 class="w32 h32 relative">
+                <span id="${user.name.toLowerCase()}-new-points">${user.points}</span>
+                <span id="${user.name.toLowerCase()}-current-points">${user.points}</span>
+            </h3>
+            <h3>&#10022;</h3>
+        </div>
     </div>
     `;
 }
 
 // Update points of specific user
-socket.on('update-user-points', ({username, amount}) => {
-    const pointNr = document.getElementById(`${username}-points`);
-    if (pointNr) {
-        pointNr.innerHTML = `${amount}`;
+socket.on('update-user-points', ({name, amount}) => {
+    const currentPoints = document.getElementById(`${name.toLowerCase()}-current-points`);
+    const newPoints = document.getElementById(`${name.toLowerCase()}-new-points`);
+
+    if ((currentPoints) && (newPoints)) {
+        newPoints.innerHTML = `${amount}`;
+        if (parseInt(currentPoints.innerHTML) > amount) {
+            newPoints.style.transform = 'translate(-50%, 36px)';
+            setTimeout(() => {
+                currentPoints.style.transform = 'translate(-50%, -36px)';
+                currentPoints.style.opacity = 0;
+
+                newPoints.style.transform = 'translate(-50%, 0px)';
+                newPoints.style.opacity = 1;
+
+                setTimeout(() => {
+                    currentPoints.innerHTML = `${amount}`;
+                    currentPoints.style.transform = 'translate(-50%, 0px)';
+                    setTimeout(() => {
+                        currentPoints.style.opacity = 1;
+                        setTimeout(() => {
+                            newPoints.style.opacity = 0;
+                        }, 400);
+                    }, 500);
+                }, 500);
+            }, 500);
+        } else if (parseInt(currentPoints.innerHTML) < amount) {
+            newPoints.style.transform = 'translate(-50%, -36px)';
+            setTimeout(() => {
+                currentPoints.style.transform = 'translate(-50%, 36px)';
+                currentPoints.style.opacity = 0;
+
+                newPoints.style.transform = 'translate(-50%, 0px)';
+                newPoints.style.opacity = 1;
+
+                setTimeout(() => {
+                    currentPoints.innerHTML = `${amount}`;
+                    currentPoints.style.transform = 'translate(-50%, 0px)';
+                    setTimeout(() => {
+                        currentPoints.style.opacity = 1;
+                        setTimeout(() => {
+                            newPoints.style.opacity = 0;
+                        }, 400);
+                    }, 500);
+                }, 500);
+            }, 500);
+        }
     }
 });
 

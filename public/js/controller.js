@@ -18,7 +18,7 @@ function setup() {
     const pointsDiv = document.getElementById('user-point-config');
     for (i = 0; i < userList.length; i++) {
         let div = document.createElement('div');
-        div.innerHTML = `<div class="flex g16"><p class="w64">${userList[i].name}</p><input id="${userList[i].name}-points" class="w64 text-center" value="${userList[i].points}"></div>`;
+        div.innerHTML = `<div class="flex g16"><p class="w64">${userList[i].name}</p><input type="number" id="${userList[i].name}-points" class="w64 text-center" value="${userList[i].points}"></div>`;
         pointsDiv.children[pointsDiv.children.length - 1].before(div);
     }
 }

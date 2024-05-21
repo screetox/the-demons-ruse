@@ -1,7 +1,5 @@
-/* FONTS */
+/* FONT */
 
-/* TODO - delete one font */
-@import url('fondamento.css');
 @import url('julee.css');
 
 
@@ -20,8 +18,6 @@
     margin: 0;
     padding: 0;
 
-    /* TODO - delete one font */
-    /* font-family: 'Fondamento', cursive; */
     font-family: 'Julee', cursive;
     color: #fff;
 }

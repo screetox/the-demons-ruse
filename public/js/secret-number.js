@@ -42,11 +42,11 @@ function saveNumbers() {
         personSelection += `
         <div class="flex column g16">
             <input type="radio" id="first-${i}" class="player-radio-button" name="first" value="${numbersAndNames[i].number}"${i == 0 ? ' checked' : ''}>
-            <label for="first-${i}" class="player-radio-button-label" style="background-image: url('/img/testimgs/${numbersAndNames[i].name.toLowerCase()}.jpg')"></label>
+            <label for="first-${i}" class="player-radio-button-label" style="background-image: url('/img/playerimgs/${numbersAndNames[i].name.toLowerCase()}.jpg')"></label>
             ${i+1 < numbersAndNames.length ? `<input type="radio" class="player-radio-button" id="first-${i+1}" name="first" value="${numbersAndNames[i+1].number}">
-            <label for="first-${i+1}" class="player-radio-button-label" style="background-image: url('/img/testimgs/${numbersAndNames[i+1].name.toLowerCase()}.jpg')"></label>` : ''}
+            <label for="first-${i+1}" class="player-radio-button-label" style="background-image: url('/img/playerimgs/${numbersAndNames[i+1].name.toLowerCase()}.jpg')"></label>` : ''}
             ${i+2 < numbersAndNames.length ? `<input type="radio" class="player-radio-button" id="first-${i+2}" name="first" value="${numbersAndNames[i+2].number}">
-            <label for="first-${i+2}" class="player-radio-button-label" style="background-image: url('/img/testimgs/${numbersAndNames[i+2].name.toLowerCase()}.jpg')"></label>` : ''}
+            <label for="first-${i+2}" class="player-radio-button-label" style="background-image: url('/img/playerimgs/${numbersAndNames[i+2].name.toLowerCase()}.jpg')"></label>` : ''}
         </div>
         `;
     }
@@ -62,11 +62,11 @@ function saveNumbers() {
         personSelection += `
         <div class="flex column g16">
             <input type="radio" id="second-${i}" class="player-radio-button" name="second" value="${numbersAndNames[i].number}"${i == 0 ? ' checked' : ''}>
-            <label for="second-${i}" class="player-radio-button-label" style="background-image: url('/img/testimgs/${numbersAndNames[i].name.toLowerCase()}.jpg')"></label>
+            <label for="second-${i}" class="player-radio-button-label" style="background-image: url('/img/playerimgs/${numbersAndNames[i].name.toLowerCase()}.jpg')"></label>
             ${i+1 < numbersAndNames.length ? `<input type="radio" id="second-${i+1}" class="player-radio-button" name="second" value="${numbersAndNames[i+1].number}">
-            <label for="second-${i+1}" class="player-radio-button-label" style="background-image: url('/img/testimgs/${numbersAndNames[i+1].name.toLowerCase()}.jpg')"></label>` : ''}
+            <label for="second-${i+1}" class="player-radio-button-label" style="background-image: url('/img/playerimgs/${numbersAndNames[i+1].name.toLowerCase()}.jpg')"></label>` : ''}
             ${i+2 < numbersAndNames.length ? `<input type="radio" id="second-${i+2}" class="player-radio-button" name="second" value="${numbersAndNames[i+2].number}">
-            <label for="second-${i+2}" class="player-radio-button-label" style="background-image: url('/img/testimgs/${numbersAndNames[i+2].name.toLowerCase()}.jpg')"></label>` : ''}
+            <label for="second-${i+2}" class="player-radio-button-label" style="background-image: url('/img/playerimgs/${numbersAndNames[i+2].name.toLowerCase()}.jpg')"></label>` : ''}
         </div>
         `;
     }

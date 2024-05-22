@@ -40,7 +40,7 @@ socket.on('update-user-list', (receivedList) => {
 function addUserDiv(user) {
     return `
     <div class="flex column g16 m32">
-        <img src="/img/testimgs/${user.name.toLowerCase()}.jpg" class="player-image">
+        <img src="/img/playerimgs/${user.name.toLowerCase()}.jpg" class="player-image">
         <h3>${user.name}</h3>
         <div class="flex point-animation">
             <h3 class="w32 h32 relative">

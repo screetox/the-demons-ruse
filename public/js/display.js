@@ -1,12 +1,15 @@
 const socket = io();
 const title = document.getElementById('title');
 const points = document.getElementById('points');
-const sections = document.querySelectorAll(`[id^='section']`);
+const sections = document.querySelectorAll(`[id^='section-']`);
 const userPointsRow1 = document.getElementById('user-points-row1');
 const userPointsRow2 = document.getElementById('user-points-row2');
 
 // Login
 socket.emit('start-display');
+function initialFadeIn() {
+    fadeInAll();
+}
 
 // Log welcomeMessage from server; message = {id = str, text = str}
 socket.on('welcomeMessage', (message) => {
@@ -134,13 +137,13 @@ function changeSectionOrder(newTopSection) {
 // Fade in all sections
 function fadeInAll() {
     for (let i = 0; i < sections.length; i++) {
-        sections[i].classList.remove('opacity0animation');
+        sections[i].classList.add('visible');
     }
 };
 
 // Fade out all sections
 function fadeOutAll() {
     for (let i = 0; i < sections.length; i++) {
-        sections[i].classList.add('opacity0animation');
+        sections[i].classList.remove('visible');
     }
 };

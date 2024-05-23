@@ -81,6 +81,17 @@ hr {
     border: 1px solid #fff;
 }
 
+div[id^='section-'] {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+div[id^='section-'].visible {
+    opacity: 1;
+    visibility: visible;
+}
+
 .vr {
     margin: 0 32px;
     border: 1px solid #fff;
@@ -243,35 +254,4 @@ span[id$='-current-points'] {
     padding: 36px;
     background-color: #0006;
     border-radius: 36px;
-}
-
-
-/* ANIMATIONS */
-
-*[id^='section-'] {
-    opacity: 1;
-    animation: fade-in 0.5s ease-in-out;
-}
-
-.opacity0animation {
-    opacity: 0;
-    animation: fade-out 0.5s ease-in-out;
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-out {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <title>The Demon's Ruse</title>
 </head>
 
@@ -20,6 +20,35 @@
             <div id="user-points-row1" class="flex g32 w100">Loading first row...</div>
             <div id="user-points-row2" class="flex g32 w100">Loading second row...</div>
         </div>
+
+        <div id="section-virus-game-death" class="flex column g64 shadow h100vh">
+            <h2 id="death-message">Tot:</h2>
+            <div class="flex g64">
+                <img src="" id="dead-player" class="player-image opacity-transition">
+                <img src="" id="dead-player-role" class="opacity-transition">
+            </div>
+        </div>
+
+        <div id="section-virus-game-infected" class="flex column g64 shadow h100vh">
+            <h2>Anzahl der infizierten Spieler:</h2>
+            <img src="img/virus-game/virus.png">
+            <h2 id="infected-count" class="opacity-transition text-center"></h2>
+        </div>
+
+        <div id="section-virus-game-cure" class="flex column g64 shadow h100vh">
+            <h2>Aktueller Stand des Heilmittels:</h2>
+            <img src="img/virus-game/cure.png">
+            <h2 id="cure-text" class="opacity-transition text-center">Das Heilmittel befindet sich in Vorbereitung.</h2>
+        </div>
+
+        <div id="section-virus-game-win" class="flex column g64 shadow h100vh">
+            <h2>Spiel beendet!</h2>
+            <div class="flex g64">
+                <img src="" id="win-group" class="opacity-transition">
+                <img src="" id="win-condition" class="opacity-transition">
+            </div>
+            <h2 id="win-text" class="opacity-transition text-center"></h2>
+        </div>
     </div>
 
     <style>
@@ -29,8 +58,10 @@
         -webkit-user-select: none;
         -o-user-select: none;
         user-select: none;
-
         cursor: none;
+    }
+
+    body {
         overflow: hidden;
     }
     </style>

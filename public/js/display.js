@@ -119,15 +119,15 @@ socket.on('update-user-points', ({name, amount}) => {
 // Switch to title view
 socket.on('show-title', () => {
     fadeOutAll();
-    setTimeout(changeSectionOrder, 500, 'title');
-    setTimeout(fadeInAll, 600);
+    setTimeout(changeSectionOrder, 1000, 'title');
+    setTimeout(fadeInAll, 1100);
 });
 
-// Switch to points  overwiev
+// Switch to points overview
 socket.on('show-points', () => {
     fadeOutAll();
-    setTimeout(changeSectionOrder, 500, 'points');
-    setTimeout(fadeInAll, 600);
+    setTimeout(changeSectionOrder, 1000, 'points');
+    setTimeout(fadeInAll, 1100);
 });
 
 // Change section order
@@ -156,3 +156,117 @@ function fadeOutAll() {
         sections[i].classList.remove('visible');
     }
 };
+
+
+// Virus Game
+
+// Show death of player in virus game
+socket.on('virus-game-death', ({player, role, virusKill}) => {
+    const deadPlayerImg = document.getElementById('dead-player');
+    const deadPlayerRoleImg = document.getElementById('dead-player-role');
+    const deathMessage = document.getElementById('death-message');
+
+    deadPlayerImg.style.opacity = 0;
+    deadPlayerRoleImg.style.opacity = 0;
+    setTimeout(() => {
+        if (virusKill) {
+            deathMessage.innerHTML = 'Das Virus hat einen Spieler getötet:';
+        } else {
+            deathMessage.innerHTML = 'Ein Spieler wurde getötet:';
+        }
+
+        deadPlayerImg.src = `img/playerimgs/${player}.jpg`;
+        deadPlayerRoleImg.src = `img/virus-game/${role}.jpg`;
+        deadPlayerImg.style.transform = 'translateX(calc(50% + 32px))';
+        deadPlayerRoleImg.style.transform = 'translateX(calc(-50% - 32px))';
+    }, 1000);
+
+    fadeOutAll();
+    setTimeout(changeSectionOrder, 1000, 'virus-game-death');
+    setTimeout(fadeInAll, 1100);
+
+    setTimeout(() => {
+        deadPlayerImg.style.opacity = 1;
+    }, 3100);
+    setTimeout(() => {
+        deadPlayerImg.style.transform = 'translateX(0%)';
+        deadPlayerRoleImg.style.opacity = 1;
+        deadPlayerRoleImg.style.transform = 'translateX(0%)';
+    }, 5100);
+});
+
+// Show number of infected players
+socket.on('virus-game-infected', (countInfected) => {
+    const infectedCount = document.getElementById('infected-count');
+
+    infectedCount.style.opacity = 0;
+    setTimeout(() => {
+        infectedCount.innerHTML = `${countInfected}`;
+    }, 1000);
+
+    fadeOutAll();
+    setTimeout(changeSectionOrder, 1000, 'virus-game-infected');
+    setTimeout(fadeInAll, 1100);
+
+    setTimeout(() => {
+        infectedCount.style.opacity = 1;
+    }, 3100);
+});
+
+// Show number of infected players
+socket.on('virus-game-cure', () => {
+    const cureText = document.getElementById('cure-text');
+    cureText.style.opacity = 0;
+
+    fadeOutAll();
+    setTimeout(changeSectionOrder, 1000, 'virus-game-cure');
+    setTimeout(fadeInAll, 1100);
+
+    setTimeout(() => {
+        cureText.style.opacity = 1;
+    }, 3100);
+});
+
+// Show number of infected players
+socket.on('virus-game-win', (condition) => {
+    const winGroupImg = document.getElementById('win-group');
+    const winConditionImg = document.getElementById('win-condition');
+    const winMessage = document.getElementById('win-text');
+
+    winGroupImg.style.opacity = 0;
+    winConditionImg.style.opacity = 0;
+    winMessage.style.opacity = 0;
+    setTimeout(() => {
+        if (condition == 'cure') {
+            winMessage.innerHTML = 'Die Bürger gewinnen durch die erfolgreiche Erforschung eines Heilmittels.';
+            winGroupImg.src = `img/virus-game/buerger.jpg`;
+            winConditionImg.src = `img/virus-game/cure.png`;
+        } else if (condition == 'kill') {
+            winMessage.innerHTML = 'Die Bürger gewinnen durch die erfolgreiche Auslöschung der Terroristen.';
+            winGroupImg.src = `img/virus-game/buerger.jpg`;
+            winConditionImg.src = `img/virus-game/kill.jpg`;
+        } else {
+            winMessage.innerHTML = 'Die Terroristen gewinnen.';
+            winGroupImg.src = `img/virus-game/terrorists.jpg`;
+        }
+
+        winGroupImg.style.transform = 'translateX(calc(50% + 32px))';
+        winConditionImg.style.transform = 'translateX(calc(-50% - 32px))';
+    }, 1000);
+
+    fadeOutAll();
+    setTimeout(changeSectionOrder, 1000, 'virus-game-win');
+    setTimeout(fadeInAll, 1100);
+
+    setTimeout(() => {
+        winGroupImg.style.opacity = 1;
+    }, 3100);
+    setTimeout(() => {
+        winMessage.style.opacity = 1;
+        if (condition != 'terrorist') {
+            winGroupImg.style.transform = 'translateX(0%)';
+            winConditionImg.style.opacity = 1;
+            winConditionImg.style.transform = 'translateX(0%)';
+        }
+    }, 5100);
+});

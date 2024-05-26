@@ -5,29 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <title>The Demon's Ruse</title>
 </head>
 
 <body class="flex column" onload="initialFadeIn()">
-    <div id="section-main" class="flex column g32 h100vh">
-        <div class="flex g16">
-            <input id="custom-input">
-            <button class="w46" onclick="sendControllerMessage()">↩</button>
-        </div>
+    <div id="section-main" class="flex column g32">
+        <button onclick="sendControllerMessage('show-title')">Title Screen</button>
+        <button onclick="sendControllerMessage('show-points')">Punkteübersicht</button>
+        <button onclick="changeSection('virusgame')">The Virus</button>
+        <a href="/secret-number.html" target="_blank"><button>Secret Number*</button></a>
 
-        <button onclick="sendControllerMessage('show-title')">show-title</button>
-        <button onclick="sendControllerMessage('show-points')">show-points</button>
-        <button onclick="changeSection('virusgame')">virus game</button>
-        <a href="/secret-number.html" target="_blank"><button>secret-number*</button></a>
-
-        <p>* = opens in new tab</p>
+        <p>* = öffnet in neuem Tab</p>
     </div>
 
+    <div id="section-virusgame" class="flex column g32">
+        <div class="flex column g16">
+            <div class="flex g16">
+                <select id="playerselect">
+                </select>
+                <select id="roleselect">
+                    <option value="terrorist">Terrorist</option>
+                    <option value="citizen">Bürger</option>
+                    <option value="researcher">Forscher</option>
+                    <option value="officer">Offizier</option>
+                    <option value="journalist">Journalist</option>
+                    <option value="fanatic">Fanatiker</option>
+                </select>
+            </div>
+            <div class="flex g16">
+                <input type="checkbox" id="killed-by-virus" name="killed-by-virus">
+                <label for="killed-by-virus">Durch Virus getötet</label>
+            </div>
+            <button onclick="showDeathVirusGame()">Tod anzeigen</button>
+        </div>
+        <hr>
+        <div class="flex g16">
+            <input type="number" id="number-infected" class="w86 text-center" value="0" min="0">
+            <button onclick="showInfectedVirusGame()">Kranke anzeigen</button>
+        </div>
+        <hr>
+        <div class="flex g16">
+            <button onclick="showCureVirusGame()">Heilmittel vorbereitet</button>
+            <button onclick="showWinVirusGame('cure')">Heilmittel entwickelt</button>
+            <button onclick="showWinVirusGame('kill')">Zivilisten gewinnen</button>
+            <button onclick="showWinVirusGame('terrorist')">Terroristen gewinnen</button>
+        </div>
+        <hr>
+        <button onclick="sendControllerMessage('show-title')">Title Screen</button>
+        <br>
+        <button onclick="changeSection('main')">Zurück</button>
+    </div>
 
     <div id="user-point-config" class="flex column g16">
-        <button onclick="updateUserPoints()">update points</button>
+        <div class="flex column">
+            <hr>
+            <button onclick="updateUserPoints()">Punkte updaten</button>
+        </div>
     </div>
+
+    <style>
+        body {
+            margin-right: 234px;
+        }
+    </style>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/controller.js"></script>

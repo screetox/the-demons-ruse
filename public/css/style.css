@@ -34,28 +34,31 @@ body {
 }
 
 h1 {
-    line-height: 128px;
+    line-height: 150px;
     font-size: 128px;
 }
 
 h2 {
-    line-height: 64px;
+    line-height: 86px;
     font-size: 64px;
 }
 
 h3 {
-    line-height: 32px;
+    line-height: 44px;
     font-size: 32px;
 }
 
-a, button, .player-radio-button-label {
+p, label, button, select {
+    font-size: 24px;
+}
+
+a, button, select, .player-radio-button-label {
     cursor: pointer;
 }
 
-button {
-    font-size: 24px;
+button, select {
     width: 196px;
-    height: 46px;
+    min-height: 46px;
     padding: 6px 12px;
     background: var(--button-color);
     color: #fff;
@@ -75,21 +78,54 @@ input {
     border: 1px solid #fff;
 }
 
+input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+}
+
 hr {
-    width: 96vw;
+    width: 96%;
+    height: 1px;
     margin: 32px 0;
-    border: 1px solid #fff;
+    border: 0;
+    background-color: #fffa;
+    flex-shrink: 0;
 }
 
 div[id^='section-'] {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
 
 div[id^='section-'].visible {
     opacity: 1;
     visibility: visible;
+}
+
+div[id^='section-virus-game-'] {
+    margin: 0 250px;
+}
+
+div[id^='section-virus-game-'] img:not(.player-image) {
+    width: 256px;
+    height: 256px;
+    object-fit: contain;
+}
+
+span[id$='-points'] {
+    position: absolute;
+    text-align: end;
+    transition: transform 0.5s ease-in, opacity 0.4s ease-in;
+}
+
+span[id$='-new-points'] {
+    opacity: 0;
+    transform: translate(-50%, 0px);
+}
+
+span[id$='-current-points'] {
+    transform: translate(-50%, 0px);
 }
 
 .vr {
@@ -113,8 +149,8 @@ div[id^='section-'].visible {
     width: 100%;
 }
 
-.w64 {
-    width: 64px;
+.w86 {
+    width: 86px;
 }
 
 .w46 {
@@ -198,6 +234,7 @@ div[id^='section-'].visible {
     height: 256px;
     border-radius: 128px;
     margin-bottom: 12px;
+    object-fit: cover;
     transition: filter 1s ease-in-out 1.5s;
 }
 
@@ -230,25 +267,26 @@ div[id^='section-'].visible {
     height: 36px;
 }
 
-span[id$='-points'] {
-    position: absolute;
-    text-align: end;
-    transition: transform 0.5s ease-in, opacity 0.4s ease-in;
-}
-
-span[id$='-new-points'] {
+.opacity-transition {
     opacity: 0;
-    transform: translate(-50%, 0px);
-}
-
-span[id$='-current-points'] {
-    transform: translate(-50%, 0px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 #user-point-config {
+    width: 222px;
     position: absolute;
     right: 12px;
     padding: 36px;
     background-color: #0006;
     border-radius: 36px;
+}
+
+#dead-player {
+    z-index: 2;
+    transform: translateX(calc(50% + 32px));
+}
+
+#dead-player-role {
+    z-index: 1;
+    transform: translateX(calc(-50% - 32px));
 }

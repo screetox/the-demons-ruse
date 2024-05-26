@@ -37,7 +37,7 @@ function sendControllerMessage(command = customInput.value) {
 // Send updated list of users
 function updateUserPoints() {
     for (i = 0; i < userList.length; i++) {
-        const newP = document.getElementById(`${userList[i].name}-points`).value;
+        const newP = document.getElementById(`${userList[i].name.toLowerCase()}-points`).value;
         if (newP != userList[i].points) {
             userList[i].points = parseInt(newP);
         }

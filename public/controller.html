@@ -9,22 +9,25 @@
     <title>The Demon's Ruse</title>
 </head>
 
-<body class="flex column g32">
-    <div class="flex g16">
-        <input id="custom-input">
-        <button class="w46" onclick="sendControllerMessage()">↩</button>
+<body class="flex column" onload="initialFadeIn()">
+    <div id="section-main" class="flex column g32 h100vh">
+        <div class="flex g16">
+            <input id="custom-input">
+            <button class="w46" onclick="sendControllerMessage()">↩</button>
+        </div>
+
+        <button onclick="sendControllerMessage('show-title')">show-title</button>
+        <button onclick="sendControllerMessage('show-points')">show-points</button>
+        <button onclick="changeSection('virusgame')">virus game</button>
+        <a href="/secret-number.html" target="_blank"><button>secret-number*</button></a>
+
+        <p>* = opens in new tab</p>
     </div>
 
-    <button onclick="sendControllerMessage('show-title')">show-title</button>
-    <button onclick="sendControllerMessage('show-points')">show-points</button>
-    <button onclick="sendUserList()">send-users</button>
 
     <div id="user-point-config" class="flex column g16">
         <button onclick="updateUserPoints()">update points</button>
     </div>
-    <a href="/secret-number.html" target="_blank"><button>secret-number*</button></a>
-
-    <p>* = opens in new tab</p>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/controller.js"></script>

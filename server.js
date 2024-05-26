@@ -26,13 +26,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Run when client connects
 io.on('connection', (socket) => {
     socket.on('start-display', () => {
-        socket.emit('welcomeMessage', formatMessage(botName, `Willkommen bei The Demon's Ruse, du verwendest die Display-Funktion!`));
+        socket.emit('welcome-message', formatMessage(botName, `Willkommen bei The Demon's Ruse, du verwendest die Display-Funktion!`));
+        socket.emit('players-from-server', players);
         socket.join('display');
         console.log(`${socket.id} connected as display.`);
     });
     socket.on('start-controller', () => {
-        socket.emit('welcomeMessage', formatMessage(botName, `Willkommen bei The Demon's Ruse, du verwendest die Controller-Funtkion!`));
-        socket.emit('playersFromServer', players);
+        socket.emit('welcome-message', formatMessage(botName, `Willkommen bei The Demon's Ruse, du verwendest die Controller-Funtkion!`));
+        socket.emit('players-from-server', players);
         socket.join('controller');
         console.log(`${socket.id} connected as controller.`);
     });

@@ -189,11 +189,16 @@ div[id^='section-'].visible {
     filter: drop-shadow(5px 5px 5px #000);
 }
 
+.player-container {
+    transition: opacity 1s ease-in-out 1.5s;
+}
+
 .player-image {
     width: 256px;
     height: 256px;
     border-radius: 128px;
     margin-bottom: 12px;
+    transition: filter 1s ease-in-out 1.5s;
 }
 
 .player-radio-button {
@@ -238,14 +243,6 @@ span[id$='-new-points'] {
 
 span[id$='-current-points'] {
     transform: translate(-50%, 0px);
-}
-
-#title {
-    order: 0;
-}
-
-#points {
-    order: 1;
 }
 
 #user-point-config {

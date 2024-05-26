@@ -11,20 +11,18 @@ function initialFadeIn() {
     fadeInAll();
 }
 
-// Log welcomeMessage from server; message = {id = str, text = str}
-socket.on('welcomeMessage', (message) => {
+// Log welcome-message from server; message = {id = str, text = str}
+socket.on('welcome-message', (message) => {
     console.log(message.text);
 });
 
 // Update list of users in case of new or deleted users
-socket.on('update-user-list', (receivedList) => {
+socket.on('players-from-server', (receivedList) => {
     userPointsRow1.innerHTML = '';
     userPointsRow2.innerHTML = '';
     const userList = [];
     for (let i = 0; i < receivedList.length; i++) {
-        if (receivedList[i].points > 0) {
-            userList.push(receivedList[i]);
-        }
+        userList.push(receivedList[i]);
     }
     if (userList.length > 3) {
         for (let i = 0; i < Math.trunc((userList.length+1)/2); i++) {
@@ -42,8 +40,8 @@ socket.on('update-user-list', (receivedList) => {
 
 function addUserDiv(user) {
     return `
-    <div class="flex column g16 m32">
-        <img src="/img/playerimgs/${user.name.toLowerCase()}.jpg" class="player-image">
+    <div id="${user.name.toLowerCase()}-container" class="player-container flex column g16 m32"${user.points == 0 ? ' style="opacity: 0.5;"' : ''}>
+        <img id="${user.name.toLowerCase()}-image" src="/img/playerimgs/${user.name.toLowerCase()}.jpg" class="player-image"${user.points == 0 ? ' style="filter: grayscale(100%);"' : ''}>
         <h3>${user.name}</h3>
         <div class="flex point-animation">
             <h3 class="w32 h32 relative">
@@ -60,6 +58,8 @@ function addUserDiv(user) {
 socket.on('update-user-points', ({name, amount}) => {
     const currentPoints = document.getElementById(`${name.toLowerCase()}-current-points`);
     const newPoints = document.getElementById(`${name.toLowerCase()}-new-points`);
+    const playerImage = document.getElementById(`${name.toLowerCase()}-image`);
+    const playerContainer = document.getElementById(`${name.toLowerCase()}-container`);
 
     if ((currentPoints) && (newPoints)) {
         newPoints.innerHTML = `${amount}`;
@@ -103,6 +103,15 @@ socket.on('update-user-points', ({name, amount}) => {
                     }, 500);
                 }, 500);
             }, 500);
+        }
+    }
+
+    if (amount == 0) {
+        if (playerContainer) {
+            playerContainer.style.opacity = '0.5';
+        }
+        if (playerImage) {
+            playerImage.style.filter = 'grayscale(100%)';
         }
     }
 });

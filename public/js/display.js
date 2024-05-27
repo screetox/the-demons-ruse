@@ -157,6 +157,17 @@ function fadeOutAll() {
     }
 };
 
+// Play video in fullscreen
+socket.on('play-video', ({videoName, videoLength}) => {
+    const videoTag = document.getElementById('video-display');
+    videoTag.src = `vid/${videoName}.mp4`;
+    videoTag.play();
+    videoTag.style.opacity = 1;
+    setTimeout(() => {
+        videoTag.style.opacity = 0;
+    }, videoLength);
+});
+
 
 // Virus Game
 

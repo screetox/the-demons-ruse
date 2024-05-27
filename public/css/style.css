@@ -290,3 +290,9 @@ span[id$='-current-points'] {
     z-index: 1;
     transform: translateX(calc(-50% - 32px));
 }
+
+#video-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

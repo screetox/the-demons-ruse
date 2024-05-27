@@ -59,6 +59,11 @@ function changeSection(newTopSection) {
     setTimeout(oneSectionVisible, 1000, newTopSection);
 }
 
+// Play video on display
+function playVideo(videoName, videoLength) {
+    sendCommand('play-video', {videoName, videoLength});
+}
+
 // Make one specific section visible
 function oneSectionVisible(visibleSection) {
     for (let i = 0; i < sections.length; i++) {

@@ -176,7 +176,7 @@ socket.on('virus-game-death', ({player, role, virusKill}) => {
         }
 
         deadPlayerImg.src = `img/playerimgs/${player}.jpg`;
-        deadPlayerRoleImg.src = `img/virus-game/${role}.jpg`;
+        deadPlayerRoleImg.src = `img/virus-game/${role}.png`;
         deadPlayerImg.style.transform = 'translateX(calc(50% + 32px))';
         deadPlayerRoleImg.style.transform = 'translateX(calc(-50% - 32px))';
     }, 1000);
@@ -239,15 +239,15 @@ socket.on('virus-game-win', (condition) => {
     setTimeout(() => {
         if (condition == 'cure') {
             winMessage.innerHTML = 'Die Bürger gewinnen durch die erfolgreiche Erforschung eines Heilmittels.';
-            winGroupImg.src = `img/virus-game/buerger.jpg`;
+            winGroupImg.src = `img/virus-game/citizen.png`;
             winConditionImg.src = `img/virus-game/cure.png`;
         } else if (condition == 'kill') {
             winMessage.innerHTML = 'Die Bürger gewinnen durch die erfolgreiche Auslöschung der Terroristen.';
-            winGroupImg.src = `img/virus-game/buerger.jpg`;
-            winConditionImg.src = `img/virus-game/kill.jpg`;
+            winGroupImg.src = `img/virus-game/citizen.png`;
+            winConditionImg.src = `img/virus-game/kill.png`;
         } else {
             winMessage.innerHTML = 'Die Terroristen gewinnen.';
-            winGroupImg.src = `img/virus-game/terrorists.jpg`;
+            winGroupImg.src = `img/virus-game/terrorist.png`;
         }
 
         winGroupImg.style.transform = 'translateX(calc(50% + 32px))';

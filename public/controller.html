@@ -11,15 +11,22 @@
 
 <body class="flex column" onload="initialFadeIn()">
     <div id="section-main" class="flex column g32">
-        <button onclick="sendControllerMessage('show-title')">Title Screen</button>
-        <button onclick="sendControllerMessage('show-points')">Punkteübersicht</button>
-        <button onclick="changeSection('virusgame')">The Virus</button>
-        <a href="/secret-number.html" target="_blank"><button>Secret Number*</button></a>
-
-        <p>* = öffnet in neuem Tab</p>
+        <div class="flex g32">
+            <button onclick="sendControllerMessage('show-title')">Title Screen</button>
+            <button onclick="sendControllerMessage('show-points')">Punkteübersicht</button>
+        </div>
+        <button onclick="changeSection('virusgame')">Spiel 1:<br>Der Virus</button>
+        <button onclick="changeSection('numbergame')">Spiel ?:<br>Geheimzahlen</button>
+        <button onclick="changeSection('mimicgame')">Spiel ?:<br>Mimik</button>
+        <button onclick="changeSection('memorygame')">Spiel ?:<br>Fotografisches Gedächtnis</button>
     </div>
 
     <div id="section-virusgame" class="flex column g32">
+        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <div class="flex g32">
+            <button onclick="sendControllerMessage('show-title')">Title Screen</button>
+        </div>
+        <hr>
         <div class="flex column g16">
             <div class="flex g16">
                 <select id="playerselect">
@@ -46,19 +53,28 @@
         </div>
         <hr>
         <div class="flex g16">
-            <button onclick="showCureVirusGame()">Heilmittel vorbereitet</button>
-            <button onclick="showWinVirusGame('cure')">Heilmittel entwickelt</button>
-            <button onclick="showWinVirusGame('kill')">Zivilisten gewinnen</button>
-            <button onclick="showWinVirusGame('terrorist')">Terroristen gewinnen</button>
+            <button onclick="showCureVirusGame()">Heilmittel<br>vorbereitet</button>
+            <button onclick="showWinVirusGame('cure')">Heilmittel<br>entwickelt</button>
+            <button onclick="showWinVirusGame('kill')">Bürger<br>gewinnen</button>
+            <button onclick="showWinVirusGame('terrorist')">Terroristen<br>gewinnen</button>
         </div>
-        <hr>
-        <button onclick="sendControllerMessage('show-title')">Title Screen</button>
-        <br>
-        <button onclick="changeSection('main')">Zurück</button>
+    </div>
+
+    <div id="section-numbergame" class="flex column g32">
+        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <a href="/secret-number.html" target="_blank"><button>Rechenseite<br>(neuer Tab)</button></a>
+    </div>
+
+    <div id="section-mimicgame" class="flex column g32">
+        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+    </div>
+
+    <div id="section-memorygame" class="flex column g32">
+        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
     </div>
 
     <div id="user-point-config" class="flex column g16">
-        <div class="flex column">
+        <div class="flex column g16">
             <hr>
             <button onclick="updateUserPoints()">Punkte updaten</button>
         </div>

@@ -56,7 +56,7 @@ function sendCommand(command, args = '') {
 // Change section order
 function changeSection(newTopSection) {
     fadeOutAll();
-    setTimeout(oneSectionVisible, 500, newTopSection);
+    setTimeout(oneSectionVisible, 1000, newTopSection);
 }
 
 // Make one specific section visible

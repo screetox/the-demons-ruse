@@ -118,17 +118,20 @@ socket.on('update-user-points', ({name, amount}) => {
 
 // Switch to title view
 socket.on('show-title', () => {
-    fadeOutAll();
-    setTimeout(changeSectionOrder, 1000, 'title');
-    setTimeout(fadeInAll, 1100);
+    switchToSection('title');
 });
 
 // Switch to points overview
 socket.on('show-points', () => {
-    fadeOutAll();
-    setTimeout(changeSectionOrder, 1000, 'points');
-    setTimeout(fadeInAll, 1100);
+    switchToSection('points');
 });
+
+// Switch to specific section with fade
+function switchToSection(section) {
+    fadeOutAll();
+    setTimeout(changeSectionOrder, 1000, section);
+    setTimeout(fadeInAll, 1100);
+}
 
 // Change section order
 function changeSectionOrder(newTopSection) {
@@ -160,12 +163,21 @@ function fadeOutAll() {
 // Play video in fullscreen
 socket.on('play-video', ({videoName, videoLength}) => {
     const videoTag = document.getElementById('video-display');
-    videoTag.src = `vid/${videoName}.mp4`;
-    videoTag.play();
-    videoTag.style.opacity = 1;
+
     setTimeout(() => {
-        videoTag.style.opacity = 0;
-    }, videoLength);
+        videoTag.src = `vid/${videoName}.mp4`;
+        videoTag.load();
+    }, 1000);
+    setTimeout(() => {
+        videoTag.play();
+        console.log(videoTag.duration)
+    }, 1100);
+
+    switchToSection('video');
+
+    setTimeout(() => {
+        switchToSection('title');
+    }, videoLength + 100);
 });
 
 
@@ -192,9 +204,7 @@ socket.on('virus-game-death', ({player, role, virusKill}) => {
         deadPlayerRoleImg.style.transform = 'translateX(calc(-50% - 32px))';
     }, 1000);
 
-    fadeOutAll();
-    setTimeout(changeSectionOrder, 1000, 'virus-game-death');
-    setTimeout(fadeInAll, 1100);
+    switchToSection('virus-game-death');
 
     setTimeout(() => {
         deadPlayerImg.style.opacity = 1;
@@ -215,9 +225,7 @@ socket.on('virus-game-infected', (countInfected) => {
         infectedCount.innerHTML = `${countInfected}`;
     }, 1000);
 
-    fadeOutAll();
-    setTimeout(changeSectionOrder, 1000, 'virus-game-infected');
-    setTimeout(fadeInAll, 1100);
+    switchToSection('virus-game-infected');
 
     setTimeout(() => {
         infectedCount.style.opacity = 1;
@@ -229,9 +237,7 @@ socket.on('virus-game-cure', () => {
     const cureText = document.getElementById('cure-text');
     cureText.style.opacity = 0;
 
-    fadeOutAll();
-    setTimeout(changeSectionOrder, 1000, 'virus-game-cure');
-    setTimeout(fadeInAll, 1100);
+    switchToSection('virus-game-cure');
 
     setTimeout(() => {
         cureText.style.opacity = 1;
@@ -265,9 +271,7 @@ socket.on('virus-game-win', (condition) => {
         winConditionImg.style.transform = 'translateX(calc(-50% - 32px))';
     }, 1000);
 
-    fadeOutAll();
-    setTimeout(changeSectionOrder, 1000, 'virus-game-win');
-    setTimeout(fadeInAll, 1100);
+    switchToSection('virus-game-win');
 
     setTimeout(() => {
         winGroupImg.style.opacity = 1;

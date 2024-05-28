@@ -186,6 +186,11 @@ span[id$='-current-points'] {
     padding: 8px 16px;
 }
 
+.main-btn button {
+    width: 312px;
+    padding: 12px 24px;
+}
+
 .text-center {
     text-align: center;
 }

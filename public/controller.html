@@ -15,10 +15,26 @@
             <button onclick="sendControllerMessage('show-title')">Title Screen</button>
             <button onclick="sendControllerMessage('show-points')">Punkteübersicht</button>
         </div>
-        <button onclick="changeSection('virusgame')">Spiel 1:<br>Der Virus</button>
-        <button onclick="changeSection('numbergame')">Spiel ?:<br>Geheimzahlen</button>
-        <button onclick="changeSection('mimicgame')">Spiel ?:<br>Mimik</button>
-        <button onclick="changeSection('memorygame')">Spiel ?:<br>Fotografisches Gedächtnis</button>
+        <hr>
+        <div class="flex g32 main-btn">
+            <button onclick="changeSection('virusgame')">Spiel 1:<br>Der Virus</button>
+            <button onclick="changeSection('memorygame')">Spiel 2:<br>Fotografisches Gedächtnis</button>
+        </div>
+        <div class="flex g32 main-btn">
+            <button onclick="changeSection('lettergame')">Spiel 3:<br>Buchstabensuppe</button>
+            <button onclick="changeSection('numbergame')">Spiel 4:<br>Geheimzahlen</button>
+        </div>
+        <div class="flex g32 main-btn">
+            <button onclick="changeSection('rulesgame')">Spiel 5:<br>Regelrechtes Rennen</button>
+            <button onclick="changeSection('mimicgame')">Spiel 6:<br>Mimik</button>
+        </div>
+        <div class="flex g32 main-btn">
+            <button onclick="changeSection('grassgame')">Spiel 7:<br>Fliesenleger</button>
+            <button onclick="changeSection('hilogame')">Spiel 8:<br>Hi-Lo</button>
+        </div>
+        <div class="main-btn">
+            <button onclick="changeSection('finalgame')">Spiel 9:<br>Finale</button>
+        </div>
     </div>
 
     <div id="section-virusgame" class="flex column g32">
@@ -61,10 +77,25 @@
         </div>
     </div>
 
+    <div id="section-memorygame" class="flex column g32">
+        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
+    </div>
+
+    <div id="section-lettergame" class="flex column g32">
+        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
+    </div>
+
     <div id="section-numbergame" class="flex column g32">
         <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
         <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
         <a href="/secret-number.html" target="_blank"><button>Rechenseite<br>(neuer Tab)</button></a>
+    </div>
+
+    <div id="section-rulesgame" class="flex column g32">
+        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
     </div>
 
     <div id="section-mimicgame" class="flex column g32">
@@ -72,7 +103,17 @@
         <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
     </div>
 
-    <div id="section-memorygame" class="flex column g32">
+    <div id="section-grassgame" class="flex column g32">
+        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
+    </div>
+
+    <div id="section-hilogame" class="flex column g32">
+        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
+    </div>
+
+    <div id="section-finalgame" class="flex column g32">
         <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
         <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
     </div>

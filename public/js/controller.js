@@ -32,11 +32,6 @@ function setupPlayersPoints() {
     }
 }
 
-// For testing purpose
-function sendControllerMessage(command) {
-    sendCommand(command);
-}
-
 // Send updated list of users
 function updateUserPoints() {
     for (i = 0; i < userList.length; i++) {

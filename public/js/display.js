@@ -285,3 +285,89 @@ socket.on('virus-game-win', (condition) => {
         }
     }, 5100);
 });
+
+
+// Memory Game
+
+const questionsMemoryGame = [
+    'Wer bin ich?',
+    'Wieso bist du hier?',
+    'Was passiert hier?',
+    'Bist du feindlich oder freundlich?'
+]
+var questionCountMemoryGame = 0;
+var isHiddenMemoryGame = true;
+
+// Show questions-section
+socket.on('memory-game-display-questions', () => {
+    const question = document.getElementById('memory-game-question');
+
+    switchToSection('memory-game');
+    setTimeout(() => {
+        question.style.opacity = 1;
+    }, 2000);
+});
+
+// Show next question
+socket.on('memory-game-next-question', () => {
+    const question = document.getElementById('memory-game-question');
+
+    questionCountMemoryGame += 1;
+    if (questionCountMemoryGame < questionsMemoryGame.length) {
+        if (isHiddenMemoryGame == false) {
+            question.style.opacity = 0;
+            setTimeout(() => {
+                question.innerHTML = questionsMemoryGame[questionCountMemoryGame];
+                question.style.opacity = 1;
+            }, 1000);
+        }
+    } else {
+        questionCountMemoryGame = questionsMemoryGame.length - 1;
+    }
+});
+
+// Show previous question
+socket.on('memory-game-previous-question', () => {
+    const question = document.getElementById('memory-game-question');
+
+    questionCountMemoryGame -= 1;
+    if (questionCountMemoryGame >= 0) {
+        if (isHiddenMemoryGame == false) {
+            question.style.opacity = 0;
+            setTimeout(() => {
+                question.innerHTML = questionsMemoryGame[questionCountMemoryGame];
+                question.style.opacity = 1;
+            }, 1000);
+        }
+    } else {
+        questionCountMemoryGame = 0;
+    }
+});
+
+// Show question
+socket.on('memory-game-show-question', () => {
+    if (isHiddenMemoryGame) {
+        const question = document.getElementById('memory-game-question');
+
+        isHiddenMemoryGame = false;
+        question.style.opacity = 0;
+        setTimeout(() => {
+            question.innerHTML = questionsMemoryGame[questionCountMemoryGame];
+            question.style.opacity = 1;
+        }, 1000);
+    }
+});
+
+// Hide question
+socket.on('memory-game-hide-question', () => {
+    if (isHiddenMemoryGame == false) {
+        const question = document.getElementById('memory-game-question');
+
+        isHiddenMemoryGame = true;
+        question.style.opacity = 0;
+        setTimeout(() => {
+            question.innerHTML = '&#10022; &#10022; &#10022;';
+            question.style.opacity = 1;
+        }, 1000);
+    }
+});

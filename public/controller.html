@@ -12,8 +12,8 @@
 <body class="flex column" onload="initialFadeIn()">
     <div id="section-main" class="flex column g32">
         <div class="flex g32">
-            <button onclick="sendControllerMessage('show-title')">Title Screen</button>
-            <button onclick="sendControllerMessage('show-points')">Punkteübersicht</button>
+            <button onclick="sendCommand('show-title')">Title Screen</button>
+            <button onclick="sendCommand('show-points')">Punkteübersicht</button>
         </div>
         <hr>
         <div class="flex g32 main-btn">
@@ -41,7 +41,7 @@
         <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
         <div class="flex g32">
             <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
-            <button onclick="sendControllerMessage('show-title')">Title Screen</button>
+            <button onclick="sendCommand('show-title')">Title Screen</button>
         </div>
         <hr>
         <div class="flex column g16">
@@ -79,7 +79,20 @@
 
     <div id="section-memorygame" class="flex column g32">
         <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
-        <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
+        <div class="flex g32">
+            <button onclick="playVideo('virus-game/testvid', 7123)">Anleitung abspielen</button>
+            <button onclick="sendCommand('memory-game-display-questions')">Fragenseite anzeigen</button>
+            <button onclick="sendCommand('show-title')">Title Screen</button>
+        </div>
+        <hr>
+        <div class="flex g32">
+            <button onclick="sendCommand('memory-game-show-question')">Frage anzeigen</button>
+            <button onclick="sendCommand('memory-game-hide-question')">Frage verstecken</button>
+        </div>
+        <div class="flex g32">
+            <button onclick="sendCommand('memory-game-previous-question')">Vorherige Frage</button>
+            <button onclick="sendCommand('memory-game-next-question')">Nächste Frage</button>
+        </div>
     </div>
 
     <div id="section-lettergame" class="flex column g32">

@@ -20,6 +20,20 @@ fs.readFile('players.json', 'utf8', (err, data) => {
     }
 });
 
+// Initialize questions and read from file
+const questionsMemoryGame = JSON.parse(`[{"question": "Question?", "delay": 1500}]`);
+fs.readFile('questions.json', 'utf8', (err, data) => {
+    if (err) {
+        console.log(err);
+    } else {
+        let questions = JSON.parse(data);
+        questionsMemoryGame.splice(0, questionsMemoryGame.length);
+        questions.forEach((q) => {
+            questionsMemoryGame.push(q);
+        });
+    }
+});
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -28,6 +42,7 @@ io.on('connection', (socket) => {
     socket.on('start-display', () => {
         socket.emit('welcome-message', formatMessage(botName, `Willkommen bei The Demon's Ruse, du verwendest die Display-Funktion!`));
         socket.emit('players-from-server', players);
+        socket.emit('memory-game-questions-from-server', questionsMemoryGame);
         socket.join('display');
         console.log(`${socket.id} connected as display.`);
     });

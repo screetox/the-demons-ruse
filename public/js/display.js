@@ -16,7 +16,7 @@ socket.on('welcome-message', (message) => {
     console.log(message.text);
 });
 
-// Update list of users in case of new or deleted users
+// Update list of users
 socket.on('players-from-server', (receivedList) => {
     userPointsRow1.innerHTML = '';
     userPointsRow2.innerHTML = '';
@@ -289,22 +289,29 @@ socket.on('virus-game-win', (condition) => {
 
 // Memory Game
 
-const questionsMemoryGame = [
-    'Wer bin ich?',
-    'Wieso bist du hier?',
-    'Was passiert hier?',
-    'Bist du feindlich oder freundlich?'
-]
+const questionsMemoryGame = [];
 var questionCountMemoryGame = 0;
 var isHiddenMemoryGame = true;
+
+// Update list of questions
+socket.on('memory-game-questions-from-server', (receivedList) => {
+    receivedList.forEach((q) => {
+        questionsMemoryGame.push(q);
+    });
+});
 
 // Show questions-section
 socket.on('memory-game-display-questions', () => {
     const question = document.getElementById('memory-game-question');
+    const svg = document.getElementById('memory-game-svg');
+
+    question.style.opacity = 0;
+    svg.style.opacity = 0;
 
     switchToSection('memory-game');
     setTimeout(() => {
         question.style.opacity = 1;
+        svg.style.opacity = 1;
     }, 2000);
 });
 
@@ -315,10 +322,12 @@ socket.on('memory-game-next-question', () => {
     questionCountMemoryGame += 1;
     if (questionCountMemoryGame < questionsMemoryGame.length) {
         if (isHiddenMemoryGame == false) {
+            stopTimerMemoryGame();
             question.style.opacity = 0;
             setTimeout(() => {
-                question.innerHTML = questionsMemoryGame[questionCountMemoryGame];
+                question.innerHTML = questionsMemoryGame[questionCountMemoryGame].question;
                 question.style.opacity = 1;
+                runTimerMemoryGame(questionsMemoryGame[questionCountMemoryGame].delay);
             }, 1000);
         }
     } else {
@@ -333,10 +342,12 @@ socket.on('memory-game-previous-question', () => {
     questionCountMemoryGame -= 1;
     if (questionCountMemoryGame >= 0) {
         if (isHiddenMemoryGame == false) {
+            stopTimerMemoryGame();
             question.style.opacity = 0;
             setTimeout(() => {
-                question.innerHTML = questionsMemoryGame[questionCountMemoryGame];
+                question.innerHTML = questionsMemoryGame[questionCountMemoryGame].question;
                 question.style.opacity = 1;
+                runTimerMemoryGame(questionsMemoryGame[questionCountMemoryGame].delay);
             }, 1000);
         }
     } else {
@@ -352,9 +363,10 @@ socket.on('memory-game-show-question', () => {
         isHiddenMemoryGame = false;
         question.style.opacity = 0;
         setTimeout(() => {
-            question.innerHTML = questionsMemoryGame[questionCountMemoryGame];
+            question.innerHTML = questionsMemoryGame[questionCountMemoryGame].question;
             question.style.opacity = 1;
         }, 1000);
+        runTimerMemoryGame(questionsMemoryGame[questionCountMemoryGame].delay);
     }
 });
 
@@ -369,5 +381,27 @@ socket.on('memory-game-hide-question', () => {
             question.innerHTML = '&#10022; &#10022; &#10022;';
             question.style.opacity = 1;
         }, 1000);
+        stopTimerMemoryGame();
     }
 });
+
+// Run circle timer animation
+function runTimerMemoryGame(delay = 0) {
+    const circle = document.getElementById('memory-game-timer');
+    setTimeout(() => {
+        circle.classList.add('animation');
+    }, delay + 1000);
+}
+
+// Stop circle timer animation
+function stopTimerMemoryGame() {
+    const circle = document.getElementById('memory-game-timer');
+    const svg = document.getElementById('memory-game-svg');
+
+    svg.style.opacity = 0;
+    setTimeout(() => {
+        circle.classList.remove('animation');
+        circle.style.strokeDashoffset = '0px';
+        svg.style.opacity = 1;
+    }, 1000);
+}

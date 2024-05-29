@@ -300,3 +300,31 @@ span[id$='-current-points'] {
     height: 100vh;
     width: 100vw;
 }
+
+#memory-game-svg {
+    width: 80px;
+    height: 80px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+#memory-game-svg circle {
+    stroke-dasharray: 227px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 8px;
+    stroke: white;
+    fill: none;
+}
+
+#memory-game-svg circle.animation {
+    animation: countdown 60s linear forwards;
+}
+
+@keyframes countdown {
+    from {
+        stroke-dashoffset: 0px;
+    }
+    to {
+        stroke-dashoffset: 227px;
+    }
+}

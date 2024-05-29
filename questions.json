@@ -1,0 +1,6 @@
+[
+    {"question": "Wer bin ich?", "delay": 1500},
+    {"question": "Wieso bist du hier?", "delay": 2000},
+    {"question": "Was passiert hier?", "delay": 1500},
+    {"question": "Bist du feindlich oder freundlich?", "delay": 2500}
+]

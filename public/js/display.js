@@ -300,14 +300,28 @@ socket.on('memory-game-questions-from-server', (receivedList) => {
     });
 });
 
+// Show image from memory game
+socket.on('memory-game-display-image', () => {
+    const image = document.getElementById('memory-game-img');
+
+    setTimeout(() => {
+        image.style.display = 'block';
+    }, 1000);
+    switchToSection('memory-game');
+});
+
 // Show questions-section
 socket.on('memory-game-display-questions', () => {
+    const image = document.getElementById('memory-game-img');
     const question = document.getElementById('memory-game-question');
     const svg = document.getElementById('memory-game-svg');
 
     question.style.opacity = 0;
     svg.style.opacity = 0;
 
+    setTimeout(() => {
+        image.style.display = 'none';
+    }, 1000);
     switchToSection('memory-game');
     setTimeout(() => {
         question.style.opacity = 1;

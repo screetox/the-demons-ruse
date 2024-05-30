@@ -296,9 +296,13 @@ span[id$='-current-points'] {
     transform: translateX(calc(-50% - 32px));
 }
 
-#video-display {
+#video-display, #memory-game-img {
     height: 100vh;
     width: 100vw;
+}
+
+#memory-game-img {
+    object-fit: contain;
 }
 
 #memory-game-svg {

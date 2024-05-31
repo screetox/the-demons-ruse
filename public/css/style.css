@@ -95,7 +95,7 @@ hr {
 div[id^='section-'] {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    transition: opacity 990ms ease-in-out, visibility 990ms ease-in-out;
 }
 
 div[id^='section-'].visible {
@@ -296,12 +296,12 @@ span[id$='-current-points'] {
     transform: translateX(calc(-50% - 32px));
 }
 
-#video-display, #memory-game-img {
+#video-display, #img-display {
     height: 100vh;
     width: 100vw;
 }
 
-#memory-game-img {
+#img-display {
     object-fit: contain;
 }
 

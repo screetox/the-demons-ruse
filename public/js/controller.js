@@ -55,8 +55,13 @@ function changeSection(newTopSection) {
 }
 
 // Play video on display
-function playVideo(videoName, videoLength) {
-    sendCommand('play-video', {videoName, videoLength});
+function playVideo(videoPath, videoLength) {
+    sendCommand('play-video', {videoPath, videoLength});
+}
+
+// Play video on display
+function showImage(imagePath) {
+    sendCommand('show-image', imagePath);
 }
 
 // Make one specific section visible

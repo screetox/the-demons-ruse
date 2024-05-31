@@ -332,9 +332,15 @@ socket.on('memory-game-display-questions', () => {
 // Show next question
 socket.on('memory-game-next-question', () => {
     const question = document.getElementById('memory-game-question');
+    const questionNr = document.getElementById('memory-game-question-nr');
 
     questionCountMemoryGame += 1;
     if (questionCountMemoryGame < questionsMemoryGame.length) {
+        questionNr.style.opacity = 0;
+        setTimeout(() => {
+            questionNr.innerHTML = `${questionCountMemoryGame + 1}`;
+            questionNr.style.opacity = 1;
+        }, 1000);
         if (isHiddenMemoryGame == false) {
             stopTimerMemoryGame();
             question.style.opacity = 0;
@@ -352,9 +358,15 @@ socket.on('memory-game-next-question', () => {
 // Show previous question
 socket.on('memory-game-previous-question', () => {
     const question = document.getElementById('memory-game-question');
+    const questionNr = document.getElementById('memory-game-question-nr');
 
     questionCountMemoryGame -= 1;
     if (questionCountMemoryGame >= 0) {
+        questionNr.style.opacity = 0;
+        setTimeout(() => {
+            questionNr.innerHTML = `${questionCountMemoryGame + 1}`;
+            questionNr.style.opacity = 1;
+        }, 1000);
         if (isHiddenMemoryGame == false) {
             stopTimerMemoryGame();
             question.style.opacity = 0;

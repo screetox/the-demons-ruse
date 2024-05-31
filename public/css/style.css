@@ -274,7 +274,7 @@ span[id$='-current-points'] {
 
 .opacity-transition {
     opacity: 0;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transition: opacity 990ms ease-in-out, transform 990ms ease-in-out;
 }
 
 #user-point-config {

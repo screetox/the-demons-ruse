@@ -48,6 +48,11 @@ h3 {
     font-size: 32px;
 }
 
+h4 {
+    line-height: 38px;
+    font-size: 26px;
+}
+
 p, label, button, select {
     font-size: 24px;
 }
@@ -213,6 +218,12 @@ span[id$='-current-points'] {
     align-items: stretch;
 }
 
+.grid-3-1 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+}
+
 .g64 {
     gap: 64px;
 }
@@ -272,9 +283,18 @@ span[id$='-current-points'] {
     height: 36px;
 }
 
-.opacity-transition {
+.fade-transition {
     opacity: 0;
     transition: opacity 990ms ease-in-out, transform 990ms ease-in-out;
+}
+
+.rule-block {
+    box-sizing: border-box;
+    border: 1px solid;
+    width: 100%;
+    height: 52px;
+    padding: 6px 12px;
+    background-color: #000a;
 }
 
 #user-point-config {
@@ -282,7 +302,7 @@ span[id$='-current-points'] {
     position: absolute;
     right: 12px;
     padding: 36px;
-    background-color: #0006;
+    background-color: #000a;
     border-radius: 36px;
 }
 
@@ -331,4 +351,62 @@ span[id$='-current-points'] {
     to {
         stroke-dashoffset: 227px;
     }
+}
+
+#rules-grid {
+    width: calc(100vw - 128px);
+    padding: 0 64px;
+    margin-top: 42px;
+}
+
+div[id^='rule-group-'] {
+    justify-content: start;
+}
+
+#rule-group-1 .rule-block {
+    border-color: #ff6;
+}
+
+#rule-group-1 .rule-block h4 {
+    color: #ff6;
+}
+
+#rule-group-1 .rule-block.not-active {
+    border-color: #883;
+}
+
+#rule-group-1 .rule-block.not-active h4 {
+    color: #883;
+}
+
+#rule-group-2 .rule-block {
+    border-color: #f66;
+}
+
+#rule-group-2 .rule-block h4 {
+    color: #f66;
+}
+
+#rule-group-2 .rule-block.not-active {
+    border-color: #833;
+}
+
+#rule-group-2 .rule-block.not-active h4 {
+    color: #833;
+}
+
+#rule-group-3 .rule-block {
+    border-color: #6f6;
+}
+
+#rule-group-3 .rule-block h4 {
+    color: #6f6;
+}
+
+#rule-group-3 .rule-block.not-active {
+    border-color: #383;
+}
+
+#rule-group-3 .rule-block.not-active h4 {
+    color: #383;
 }

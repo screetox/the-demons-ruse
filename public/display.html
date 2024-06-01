@@ -32,38 +32,110 @@
         <div id="section-virus-game-death" class="flex column g64 shadow h100vh">
             <h2 id="death-message">Tot:</h2>
             <div class="flex g64">
-                <img src="" id="dead-player" class="player-image opacity-transition">
-                <img src="" id="dead-player-role" class="opacity-transition">
+                <img src="" id="dead-player" class="player-image fade-transition">
+                <img src="" id="dead-player-role" class="fade-transition">
             </div>
         </div>
 
         <div id="section-virus-game-infected" class="flex column g64 shadow h100vh">
             <h2>Anzahl der infizierten Spieler:</h2>
             <img src="img/virus-game/virus.png">
-            <h2 id="infected-count" class="opacity-transition text-center"></h2>
+            <h2 id="infected-count" class="fade-transition text-center"></h2>
         </div>
 
         <div id="section-virus-game-cure" class="flex column g64 shadow h100vh">
             <h2>Aktueller Stand des Heilmittels:</h2>
             <img src="img/virus-game/cure.png">
-            <h2 id="cure-text" class="opacity-transition text-center">Das Heilmittel befindet sich in Vorbereitung.</h2>
+            <h2 id="cure-text" class="fade-transition text-center">Das Heilmittel befindet sich in Vorbereitung.</h2>
         </div>
 
         <div id="section-virus-game-win" class="flex column g64 shadow h100vh">
             <h2>Spiel beendet!</h2>
             <div class="flex g64">
-                <img src="" id="win-group" class="opacity-transition">
-                <img src="" id="win-condition" class="opacity-transition">
+                <img src="" id="win-group" class="fade-transition">
+                <img src="" id="win-condition" class="fade-transition">
             </div>
-            <h2 id="win-text" class="opacity-transition text-center"></h2>
+            <h2 id="win-text" class="fade-transition text-center"></h2>
         </div>
 
         <div id="section-memory-game" class="flex column g64 shadow h100vh">
-            <h2 class="text-center">&#10022; Frage <span id="memory-game-question-nr" class="opacity-transition" style="opacity: 1; display: inline-block; width: 64px; text-align: right;">1</span> &#10022;</h2>
-            <h2 id="memory-game-question" class="opacity-transition text-center">&#10022; &#10022; &#10022;</h2>
-            <svg id="memory-game-svg" class="opacity-transition">
+            <h2 class="text-center">&#10022; Frage <span id="memory-game-question-nr" class="fade-transition" style="opacity: 1; display: inline-block; width: 64px; text-align: right;">1</span> &#10022;</h2>
+            <h2 id="memory-game-question" class="fade-transition text-center">&#10022; &#10022; &#10022;</h2>
+            <svg id="memory-game-svg" class="fade-transition">
                 <circle id="memory-game-timer" r="36" cx="40" cy="40"></circle>
             </svg>
+        </div>
+
+        <div id="section-rules-game" class="flex column g64 shadow h100vh">
+            <h2 class="text-center">&#10022; Gruppenregel &#10022;</h2>
+            <div id="rules-grid" class="grid-3-1 text-center g32">
+                <div id="rule-group-1" class="flex column g32">
+                    <div id="rule1-1" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Alle Spieler während ihres Zuges:</h4>
+                    </div>
+                    <div id="rule1-2" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Alle Spieler im Gefängnis:</h4>
+                    </div>
+                    <div id="rule1-3" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Führende Spieler während ihres Zuges:</h4>
+                    </div>
+                </div>
+                <div id="rule-group-2" class="flex column g32">
+                    <div id="rule2-1" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Wenn 'Gefängnis' gewürfelt wird, gehe nicht ins Gefängnis, sondern</h4>
+                    </div>
+                    <div id="rule2-2" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Wenn '1' gewürfelt wird, zählt der Wurf und</h4>
+                    </div>
+                    <div id="rule2-3" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Wenn '2' gewürfelt wird, zählt der Wurf und</h4>
+                    </div>
+                    <div id="rule2-4" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Wenn '3' gewürfelt wird, zählt der Wurf und</h4>
+                    </div>
+                    <div id="rule2-5" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Wenn ein anderer Spieler ins Gefängnis geht,</h4>
+                    </div>
+                    <div id="rule2-6" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Optional: Gehe 2 Felder zurück und</h4>
+                    </div>
+                    <div id="rule2-7" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Optional: Gib ein Token ab und</h4>
+                    </div>
+                    <div id="rule2-8" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Optional: Gib ein Escape-Ticket ab und</h4>
+                    </div>
+                    <div id="rule2-9" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>Optional: Würfle nicht, sondern</h4>
+                    </div>
+                </div>
+                <div id="rule-group-3" class="flex column g32">
+                    <div id="rule3-1" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>gehe 1 Feld vorwärts.</h4>
+                    </div>
+                    <div id="rule3-2" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>erhalte ein Escape-Ticket.</h4>
+                    </div>
+                    <div id="rule3-3" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>gib einem anderen Spieler ein Escape-Ticket.</h4>
+                    </div>
+                    <div id="rule3-4" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>würfle erneut.</h4>
+                    </div>
+                    <div id="rule3-5" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>springe zum nächsten Spieler nach vorne.</h4>
+                    </div>
+                    <div id="rule3-6" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>gehe 1 Feld zurück.</h4>
+                    </div>
+                    <div id="rule3-7" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>würfle mit dem Spezial-Würfel.</h4>
+                    </div>
+                    <div id="rule3-8" class="rule-block fade-transition" style="opacity: 1;">
+                        <h4>bewege einen anderen Spieler 1 Feld nach hinten.</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

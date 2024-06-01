@@ -100,6 +100,9 @@ function setupPlayersVirusGame() {
         let option = document.createElement('option');
         option.value = `${userList[i].name.toLowerCase()}`;
         option.innerHTML = `${userList[i].name}`;
+        if (i == 0) {
+            option.selected = true;
+        }
         playerSelect.appendChild(option);
     }
 }
@@ -126,4 +129,16 @@ function showCureVirusGame() {
 // Show that the cure is  in virus game
 function showWinVirusGame(winCondition) {
     sendCommand('virus-game-win', winCondition);
+}
+
+
+// Rules Game
+
+// Setup new group rules
+function changeGroupRuleRulesGame() {
+    const r1 = document.getElementById('rulesselect-1').value;
+    const r2 = document.getElementById('rulesselect-2').value;
+    const r3 = document.getElementById('rulesselect-3').value;
+
+    sendCommand('change-group-rule-rules-game', {r1, r2, r3});
 }

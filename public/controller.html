@@ -50,7 +50,7 @@
                 <select id="playerselect">
                 </select>
                 <select id="roleselect">
-                    <option value="terrorist">Terrorist</option>
+                    <option value="terrorist" selected>Terrorist</option>
                     <option value="citizen">Bürger</option>
                     <option value="researcher">Forscher</option>
                     <option value="officer">Offizier</option>
@@ -119,13 +119,53 @@
         <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
         <!-- TODO: change path to correct video -->
         <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+        <button onclick="sendCommand('show-title')">Title<br>Screen</button>
         <a href="/secret-number.html" target="_blank"><button>Rechenseite<br>(neuer Tab)</button></a>
     </div>
 
     <div id="section-rulesgame" class="flex column g32">
         <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
-        <!-- TODO: change path to correct video -->
-        <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+        <div class="flex g32">
+            <!-- TODO: change path to correct video -->
+            <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+            <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        </div>
+        <hr>
+        <div class="flex g32">
+            <button onclick="sendCommand('rules-game-display')">Gruppenregeln anzeigen</button>
+            <button onclick="sendCommand('rules-game-clear-rule')">Gruppenregel löschen</button>
+        </div>
+        <div class="flex column g16">
+            <div class="flex g16">
+                <select id="rulesselect-1">
+                    <option value="rule1-1" selected>Alle Spieler während ihres Zuges:</option>
+                    <option value="rule1-2">Alle Spieler im Gefängnis:</option>
+                    <option value="rule1-3">Führende Spieler während ihres Zuges:</option>
+                </select>
+                <select id="rulesselect-2">
+                    <option value="rule2-1" selected>Wenn 'Gefängnis' gewürfelt wird, gehe nicht ins Gefängnis, sondern</option>
+                    <option value="rule2-2">Wenn '1' gewürfelt wird, zählt der Wurf und</option>
+                    <option value="rule2-3">Wenn '2' gewürfelt wird, zählt der Wurf und</option>
+                    <option value="rule2-4">Wenn '3' gewürfelt wird, zählt der Wurf und</option>
+                    <option value="rule2-5">Wenn ein anderer Spieler ins Gefängnis geht,</option>
+                    <option value="rule2-6">Optional: Gehe 2 Felder zurück und</option>
+                    <option value="rule2-7">Optional: Gib ein Token ab und</option>
+                    <option value="rule2-8">Optional: Gib ein Escape-Ticket ab und</option>
+                    <option value="rule2-9">Optional: Würfle nicht, sondern</option>
+                </select>
+                <select id="rulesselect-3">
+                    <option value="rule3-1" selected>gehe 1 Feld vorwärts.</option>
+                    <option value="rule3-2">erhalte ein Escape-Ticket.</option>
+                    <option value="rule3-3">gib einem anderen Spieler ein Escape-Ticket.</option>
+                    <option value="rule3-4">würfle erneut.</option>
+                    <option value="rule3-5">springe zum nächsten Spieler nach vorne.</option>
+                    <option value="rule3-6">gehe 1 Feld zurück.</option>
+                    <option value="rule3-7">würfle mit dem Spezial-Würfel.</option>
+                    <option value="rule3-8">bewege einen anderen Spieler 1 Feld nach hinten.</option>
+                </select>
+            </div>
+            <button onclick="changeGroupRuleRulesGame()">Regel anpassen</button>
+        </div>
     </div>
 
     <div id="section-mimicgame" class="flex column g32">

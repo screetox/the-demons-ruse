@@ -161,11 +161,11 @@ function fadeOutAll() {
 };
 
 // Play video in fullscreen
-socket.on('play-video', ({videoName, videoLength}) => {
+socket.on('play-video', ({videoPath, videoLength}) => {
     const videoTag = document.getElementById('video-display');
 
     setTimeout(() => {
-        videoTag.src = `vid/${videoName}`;
+        videoTag.src = `vid/${videoPath}`;
         videoTag.load();
     }, 1000);
     setTimeout(() => {
@@ -427,4 +427,66 @@ function stopTimerMemoryGame() {
         circle.style.strokeDashoffset = '0px';
         svg.style.opacity = 1;
     }, 1000);
+}
+
+
+// Rules Game
+
+// Show rules-section
+socket.on('rules-game-display', () => {
+    switchToSection('rules-game');
+});
+
+// Show rules-section
+socket.on('rules-game-clear-rule', () => {
+    const ruleGroup1 = document.querySelectorAll('#rule-group-1 div.rule-block');
+    const ruleGroup2 = document.querySelectorAll('#rule-group-2 div.rule-block');
+    const ruleGroup3 = document.querySelectorAll('#rule-group-3 div.rule-block');
+
+    const allGroups = [];
+    ruleGroup1.forEach((r1) => {
+        allGroups.push(r1);
+    });
+    ruleGroup2.forEach((r2) => {
+        allGroups.push(r2);
+    });
+    ruleGroup3.forEach((r3) => {
+        allGroups.push(r3);
+    });
+    for (i = 0; i < allGroups.length; i++) {
+        allGroups[i].classList.remove('not-active');
+        allGroups[i].style.transform = `translateY(0px)`;
+    }
+});
+
+// Update group rule
+socket.on('change-group-rule-rules-game', ({r1, r2, r3}) => {
+    const ruleGroup1 = document.querySelectorAll('#rule-group-1 div.rule-block');
+    const ruleGroup2 = document.querySelectorAll('#rule-group-2 div.rule-block');
+    const ruleGroup3 = document.querySelectorAll('#rule-group-3 div.rule-block');
+
+    moveRuleToTopRulesGame(ruleGroup1, r1);
+    moveRuleToTopRulesGame(ruleGroup2, r2);
+    moveRuleToTopRulesGame(ruleGroup3, r3);
+});
+
+// Move specific group rule to top
+function moveRuleToTopRulesGame(ruleGroup, rule) {
+    let counter = 1;
+    let ruleFound = false;
+    for (i = 0; i < ruleGroup.length; i++) {
+        if (ruleGroup[i].id == rule) {
+            ruleGroup[i].classList.remove('not-active');
+            ruleGroup[i].style.transform = `translateY(-${(counter * 84) - 42}px)`;
+            ruleFound = true;
+        } else {
+            ruleGroup[i].classList.add('not-active');
+            counter += 1;
+            if (ruleFound) {
+                ruleGroup[i].style.transform = `translateY(0px)`;
+            } else {
+                ruleGroup[i].style.transform = `translateY(84px)`;
+            }
+        }
+    }
 }

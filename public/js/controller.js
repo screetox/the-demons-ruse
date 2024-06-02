@@ -142,3 +142,13 @@ function changeGroupRuleRulesGame() {
 
     sendCommand('change-group-rule-rules-game', {r1, r2, r3});
 }
+
+
+// Mimic Game
+
+// Start new round
+function startRoundMimicGame(rnd, lastIndex, solution) {
+    sendCommand('mimic-game-run-round', {rnd, lastIndex});
+    document.getElementById('mimic-game-img').src = `${solution}`;
+    document.getElementById('mimic-game-solution-text').innerHTML = `Lösung Runde ${rnd}:`;
+}

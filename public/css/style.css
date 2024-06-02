@@ -410,3 +410,25 @@ div[id^='rule-group-'] {
 #rule-group-3 .rule-block.not-active h4 {
     color: #383;
 }
+
+#mimic-game-img-container {
+    border: 12px solid;
+    background-color: #000;
+    border-image: linear-gradient(90deg, #ff8d00 0%, #ffd555 20%, #ffd555 80%, #ff8d00 100%) 30;
+}
+
+#mimic-game-img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+#mimic-game-solution {
+    width: 500px;
+    position: absolute;
+    left: 16px;
+    padding: 36px;
+    background-color: #000a;
+    border-radius: 36px;
+}

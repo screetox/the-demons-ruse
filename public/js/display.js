@@ -490,3 +490,90 @@ function moveRuleToTopRulesGame(ruleGroup, rule) {
         }
     }
 }
+
+
+// Mimic Game
+
+var pauseMimicGame = false;
+var nextParamsMimicGame = ['path', 'idx', 'lastIndex'];
+
+// Show mimic-section
+socket.on('mimic-game-display', () => {
+    switchToSection('mimic-game');
+});
+
+// Play round {1, 2, 3} of the mimic game
+socket.on('mimic-game-run-round', ({rnd, lastIndex}) => {
+    const imgTag = document.getElementById('mimic-game-img');
+    const roundNr = document.getElementById('mimic-game-round-nr');
+    const folderPath = `img/mimic-game/round${rnd}`;
+
+    pauseMimicGame = false;
+    imgTag.src = '';
+    if (roundNr.innerHTML != `${rnd}`) {
+        roundNr.style.opacity = 0;
+    }
+    setTimeout(() => {
+        roundNr.innerHTML = `${rnd}`;
+        roundNr.style.opacity = 1;
+        imgTag.style.opacity = 1;
+        setTimeout(() => {
+            imgTag.src = 'img/mimic-game/3.jpg';
+            setTimeout(() => {
+                imgTag.src = 'img/mimic-game/2.jpg';
+                setTimeout(() => {
+                    imgTag.src = 'img/mimic-game/1.jpg';
+                    setTimeout(() => {
+                        loopImagesMimicGame(folderPath, 0, lastIndex);
+                    }, 1000);
+                }, 1000);
+            }, 1000);
+        }, 2000);
+    }, 1000);
+});
+
+// Display specific image from folder
+function loopImagesMimicGame(path, idx, lastIndex) {
+    const imgTag = document.getElementById('mimic-game-img');
+
+    if (idx <= lastIndex) {
+        if (pauseMimicGame) {
+            nextParamsMimicGame = [path, idx, lastIndex];
+        } else {
+            imgTag.src = `${path}/${idx}.jpg`;
+            setTimeout(() => {
+                idx = parseInt(idx) + 1;
+                loopImagesMimicGame(path, idx, lastIndex);
+            }, 3000);
+        }
+    } else {
+        imgTag.style.opacity = 0;
+    }
+}
+
+// Pause the game
+socket.on('mimic-game-pause', () => {
+    const imgTag = document.getElementById('mimic-game-img');
+
+    pauseMimicGame = true;
+    imgTag.style.filter = 'grayscale(1)';
+});
+
+// Resume the game
+socket.on('mimic-game-resume', () => {
+    const imgTag = document.getElementById('mimic-game-img');
+
+    pauseMimicGame = false;
+    imgTag.style.filter = 'grayscale(0)';
+    setTimeout(() => {
+        loopImagesMimicGame(nextParamsMimicGame[0], nextParamsMimicGame[1], nextParamsMimicGame[2]);
+    }, 3000);
+});
+
+// Pause the game
+socket.on('mimic-game-break', () => {
+    const imgTag = document.getElementById('mimic-game-img');
+
+    pauseMimicGame = true;
+    imgTag.style.opacity = 0;
+});

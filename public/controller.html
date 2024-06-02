@@ -165,22 +165,59 @@
         </div>
     </div>
 
-    <div id="section-mimicgame" class="flex column g32">
+    <div id="section-mimicgame" class="flex column g32" style="margin-left: 588px;">
         <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
-        <!-- TODO: change path to correct video -->
-        <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+        <div id="mimic-game-solution" class="text-center">
+            <h4 id="mimic-game-solution-text" style="margin-bottom: 24px;">Lösung:</h4>
+            <img id="mimic-game-img" src="">
+        </div>
+        <div class="flex g32">
+            <!-- TODO: change path to correct video -->
+            <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+            <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        </div>
+        <hr>
+        <button onclick="sendCommand('mimic-game-display')">Bilderseite anzeigen</button>
+        <div class="flex g32">
+            <!-- TODO: change lastIndex and solution image -->
+            <button onclick="startRoundMimicGame(1, 1, 'img/mimic-game/round1/0.jpg')">Runde 1</button>
+            <!-- TODO: change lastIndex and solution image -->
+            <button onclick="startRoundMimicGame(2, 1, 'img/mimic-game/round2/0.jpg')">Runde 2</button>
+        </div>
+        <div class="flex g32">
+            <!-- TODO: change lastIndex and solution image -->
+            <button onclick="startRoundMimicGame(3, 1, 'img/mimic-game/round3/0.jpg')">Runde 3</button>
+            <!-- TODO: change lastIndex and solution image -->
+            <button onclick="startRoundMimicGame(4, 1, 'img/mimic-game/round4/0.jpg')">Runde 4</button>
+        </div>
+        <!-- TODO: change lastIndex and solution image -->
+        <button onclick="startRoundMimicGame(5, 8, 'img/mimic-game/round5/0.jpg')">Runde 5</button>
+        <hr>
+        <div class="flex g32">
+            <button onclick="sendCommand('mimic-game-pause')">Pause</button>
+            <button onclick="sendCommand('mimic-game-resume')">Weiter</button>
+        </div>
+        <button onclick="sendCommand('mimic-game-break')">Abbruch</button>
     </div>
 
     <div id="section-hilogame" class="flex column g32">
         <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
-        <!-- TODO: change path to correct video -->
-        <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+        <div class="flex g32">
+            <!-- TODO: change path to correct video -->
+            <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+            <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        </div>
+        <hr>
     </div>
 
     <div id="section-finalgame" class="flex column g32">
         <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
-        <!-- TODO: change path to correct video -->
-        <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+        <div class="flex g32">
+            <!-- TODO: change path to correct video -->
+            <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+            <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        </div>
+        <hr>
     </div>
 
     <div id="user-point-config" class="flex column g16">
@@ -192,7 +229,7 @@
 
     <style>
         body {
-            margin-right: 234px;
+            margin-right: 306px;
         }
     </style>
 

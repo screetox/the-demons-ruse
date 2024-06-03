@@ -69,11 +69,16 @@ button, select {
     color: #fff;
     border: 1px solid #fff;
     border-radius: 8px;
-    transition: 0.5s;
+    transition: background-color 0.5s;
 }
 
 button:hover {
     background: var(--button-hover-color);
+}
+
+button:active {
+    position: relative;
+    top: 1px;
 }
 
 input {
@@ -180,10 +185,20 @@ span[id$='-current-points'] {
     left: 16px;
 }
 
+.tl-btn:active {
+    position: absolute;
+    top: 17px;
+}
+
 .br-btn {
     position: absolute;
     bottom: 16px;
     right: 16px;
+}
+
+.br-btn:active {
+    position: absolute;
+    bottom: 15px;
 }
 
 .big-btn {
@@ -222,6 +237,10 @@ span[id$='-current-points'] {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto;
+}
+
+.g128 {
+    gap: 128px;
 }
 
 .g64 {
@@ -428,6 +447,138 @@ div[id^='rule-group-'] {
     width: 500px;
     position: absolute;
     left: 16px;
+    padding: 36px;
+    background-color: #000a;
+    border-radius: 36px;
+}
+
+.hexagon-container {
+    width: 970px;
+    height: 842px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hexagon-clipped-border{
+    -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    padding: 5px;
+    max-height: 200px;
+    max-width: 200px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.hexagon-clipped-border:nth-child(1){
+    top: 0;
+    left: 190px;
+}
+
+.hexagon-clipped-border:nth-child(2){
+    top: 0;
+    left: 380px;
+}
+
+.hexagon-clipped-border:nth-child(3){
+    top: 0;
+    left: 570px;
+}
+
+.hexagon-clipped-border:nth-child(4){
+    top: 158px;
+    left: 95px;
+}
+
+.hexagon-clipped-border:nth-child(5){
+    top: 158px;
+    left: 285px;
+}
+
+.hexagon-clipped-border:nth-child(6){
+    top: 158px;
+    left: 475px;
+}
+
+.hexagon-clipped-border:nth-child(7){
+    top: 158px;
+    left: 665px;
+}
+
+.hexagon-clipped-border:nth-child(8){
+    top: 316px;
+    left: 0;
+}
+
+.hexagon-clipped-border:nth-child(9){
+    top: 316px;
+    left: 190px;
+}
+
+.hexagon-clipped-border:nth-child(10){
+    top: 316px;
+    left: 380px;
+}
+
+.hexagon-clipped-border:nth-child(11){
+    top: 316px;
+    left: 570px;
+}
+
+.hexagon-clipped-border:nth-child(12){
+    top: 316px;
+    left: 760px;
+}
+
+.hexagon-clipped-border:nth-child(13){
+    top: 474px;
+    left: 95px;
+}
+
+.hexagon-clipped-border:nth-child(14){
+    top: 474px;
+    left: 285px;
+}
+
+.hexagon-clipped-border:nth-child(15){
+    top: 474px;
+    left: 475px;
+}
+
+.hexagon-clipped-border:nth-child(16){
+    top: 474px;
+    left: 665px;
+}
+
+.hexagon-clipped-border:nth-child(17){
+    top: 632px;
+    left: 190px;
+}
+
+.hexagon-clipped-border:nth-child(18){
+    top: 632px;
+    left: 380px;
+}
+
+.hexagon-clipped-border:nth-child(19){
+    top: 632px;
+    left: 570px;
+}
+
+.hexagon-clipped {
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    background-color: #000;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.hexagon-clipped p {
+    font-size: 128px;
+}
+
+.hexagon-target {
     padding: 36px;
     background-color: #000a;
     border-radius: 36px;

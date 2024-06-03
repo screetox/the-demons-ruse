@@ -11,14 +11,15 @@
 
 <body class="flex column" onload="initialFadeIn()">
     <div id="section-main" class="flex column g32">
+        <h3 class="shadow" style="margin-bottom: 24px;">Hauptmen&uuml;</h3>
         <div class="flex g32">
             <button onclick="sendCommand('show-title')">Title Screen</button>
-            <button onclick="sendCommand('show-points')">Punkteübersicht</button>
+            <button onclick="sendCommand('show-points')">Punkte&uuml;bersicht</button>
         </div>
         <hr>
         <div class="flex g32 main-btn">
             <button onclick="changeSection('virusgame')">Spiel 1:<br>Der Virus</button>
-            <button onclick="changeSection('memorygame')">Spiel 2:<br>Fotografisches Gedächtnis</button>
+            <button onclick="changeSection('memorygame')">Spiel 2:<br>Fotografisches Ged&auml;chtnis</button>
         </div>
         <div class="flex g32 main-btn">
             <button onclick="changeSection('lettergame')">Spiel 3:<br>Buchstabensuppe</button>
@@ -35,7 +36,8 @@
     </div>
 
     <div id="section-virusgame" class="flex column g32">
-        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="changeSection('main')" class="tl-btn">Zur&uuml;ck</button>
+        <h3 class="shadow" style="margin-bottom: 24px;">Der Virus</h3>
         <div class="flex g32">
             <!-- TODO: change path to correct video -->
             <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
@@ -48,7 +50,7 @@
                 </select>
                 <select id="roleselect">
                     <option value="terrorist" selected>Terrorist</option>
-                    <option value="citizen">Bürger</option>
+                    <option value="citizen">B&uuml;rger</option>
                     <option value="researcher">Forscher</option>
                     <option value="officer">Offizier</option>
                     <option value="journalist">Journalist</option>
@@ -57,7 +59,7 @@
             </div>
             <div class="flex g16">
                 <input type="checkbox" id="killed-by-virus" name="killed-by-virus">
-                <label for="killed-by-virus">Durch Virus getötet</label>
+                <label for="killed-by-virus">Durch Virus get&ouml;tet</label>
             </div>
             <button onclick="showDeathVirusGame()">Tod anzeigen</button>
         </div>
@@ -70,13 +72,14 @@
         <div class="flex g16">
             <button onclick="showCureVirusGame()">Heilmittel<br>vorbereitet</button>
             <button onclick="showWinVirusGame('cure')">Heilmittel<br>entwickelt</button>
-            <button onclick="showWinVirusGame('kill')">Bürger<br>gewinnen</button>
+            <button onclick="showWinVirusGame('kill')">B&uuml;rger<br>gewinnen</button>
             <button onclick="showWinVirusGame('terrorist')">Terroristen<br>gewinnen</button>
         </div>
     </div>
 
     <div id="section-memorygame" class="flex column g32">
-        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="changeSection('main')" class="tl-btn">Zur&uuml;ck</button>
+        <h3 class="shadow" style="margin-bottom: 24px;">Fotografisches Ged&auml;chtnis</h3>
         <div class="flex g32">
             <!-- TODO: change path to correct video -->
             <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
@@ -94,34 +97,43 @@
         </div>
         <div class="flex g32">
             <button onclick="sendCommand('memory-game-previous-question')">Vorherige Frage</button>
-            <button onclick="sendCommand('memory-game-next-question')">Nächste Frage</button>
+            <button onclick="sendCommand('memory-game-next-question')">N&auml;chste Frage</button>
         </div>
     </div>
 
     <div id="section-lettergame" class="flex column g32">
-        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
-        <!-- TODO: change path to correct video -->
-        <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
-        <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        <button onclick="changeSection('main')" class="tl-btn">Zur&uuml;ck</button>
+        <h3 class="shadow" style="margin-bottom: 24px;">Buchstabensuppe</h3>
+        <div class="flex g32">
+            <!-- TODO: change path to correct video -->
+            <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+            <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        </div>
         <hr>
-        <!-- TODO: change path to correct image -->
-        <button onclick="showImage('demon.png')">Runde 1</button>
-        <!-- TODO: change path to correct image -->
-        <button onclick="showImage('demon.png')">Runde 2</button>
+        <div class="flex g32">
+            <!-- TODO: change path to correct image -->
+            <button onclick="showImage('demon.png')">Runde 1</button>
+            <!-- TODO: change path to correct image -->
+            <button onclick="showImage('demon.png')">Runde 2</button>
+        </div>
         <!-- TODO: change path to correct image -->
         <button onclick="showImage('demon.png')">Runde 3</button>
     </div>
 
     <div id="section-numbergame" class="flex column g32">
-        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
-        <!-- TODO: change path to correct video -->
-        <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
-        <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        <button onclick="changeSection('main')" class="tl-btn">Zur&uuml;ck</button>
+        <h3 class="shadow" style="margin-bottom: 24px;">Geheimzahlen</h3>
+        <div class="flex g32">
+            <!-- TODO: change path to correct video -->
+            <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+            <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        </div>
         <a href="/secret-number.html" target="_blank"><button>Rechenseite<br>(neuer Tab)</button></a>
     </div>
 
     <div id="section-rulesgame" class="flex column g32">
-        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="changeSection('main')" class="tl-btn">Zur&uuml;ck</button>
+        <h3 class="shadow" style="margin-bottom: 24px;">Regelrechtes Rennen</h3>
         <div class="flex g32">
             <!-- TODO: change path to correct video -->
             <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
@@ -130,35 +142,35 @@
         <hr>
         <div class="flex g32">
             <button onclick="sendCommand('rules-game-display')">Gruppenregeln anzeigen</button>
-            <button onclick="sendCommand('rules-game-clear-rule')">Gruppenregel löschen</button>
+            <button onclick="sendCommand('rules-game-clear-rule')">Gruppenregel l&ouml;schen</button>
         </div>
         <div class="flex column g16">
             <div class="flex g16">
                 <select id="rulesselect-1">
-                    <option value="rule1-1" selected>Jeder Spieler während seines Zuges:</option>
-                    <option value="rule1-2">Alle Spieler im Gefängnis, jederzeit:</option>
-                    <option value="rule1-3">Führende Spieler während ihres Zuges:</option>
+                    <option value="rule1-1" selected>Jeder Spieler w&auml;hrend seines Zuges:</option>
+                    <option value="rule1-2">Alle Spieler im Gef&auml;ngnis, jederzeit:</option>
+                    <option value="rule1-3">F&uuml;hrende Spieler w&auml;hrend ihres Zuges:</option>
                 </select>
                 <select id="rulesselect-2">
-                    <option value="rule2-1" selected>Wenn Du 'Gefängnis' würfelst, gehe nicht ins Gefängnis, sondern</option>
-                    <option value="rule2-2">Wenn Du '1' würfelst, ziehe entsprechend und</option>
-                    <option value="rule2-3">Wenn Du '2' würfelst, ziehe entsprechend und</option>
-                    <option value="rule2-4">Wenn Du '3' würfelst, ziehe entsprechend und</option>
-                    <option value="rule2-5">Wenn ein anderer Spieler ins Gefängnis geht,</option>
-                    <option value="rule2-6">Optional: Gehe 2 Felder zurück und</option>
+                    <option value="rule2-1" selected>Wenn Du 'Gef&auml;ngnis' w&uuml;rfelst, gehe nicht ins Gef&auml;ngnis, sondern</option>
+                    <option value="rule2-2">Wenn Du '1' w&uuml;rfelst, ziehe entsprechend und</option>
+                    <option value="rule2-3">Wenn Du '2' w&uuml;rfelst, ziehe entsprechend und</option>
+                    <option value="rule2-4">Wenn Du '3' w&uuml;rfelst, ziehe entsprechend und</option>
+                    <option value="rule2-5">Wenn ein anderer Spieler ins Gef&auml;ngnis geht,</option>
+                    <option value="rule2-6">Optional: Gehe 2 Felder zur&uuml;ck und</option>
                     <option value="rule2-7">Optional: Zahle ein Token und</option>
                     <option value="rule2-8">Optional: Zahle ein Escape-Ticket und</option>
-                    <option value="rule2-9">Optional: Würfle nicht, sondern</option>
+                    <option value="rule2-9">Optional: W&uuml;rfle nicht, sondern</option>
                 </select>
                 <select id="rulesselect-3">
-                    <option value="rule3-1" selected>gehe 1 Feld vorwärts.</option>
+                    <option value="rule3-1" selected>gehe 1 Feld vorw&auml;rts.</option>
                     <option value="rule3-2">erhalte ein Escape-Ticket.</option>
                     <option value="rule3-3">gib einem anderen Spieler ein Escape-Ticket.</option>
-                    <option value="rule3-4">würfle erneut.</option>
-                    <option value="rule3-5">springe zum nächsten Spieler nach vorne.</option>
-                    <option value="rule3-6">gehe 1 Feld zurück.</option>
-                    <option value="rule3-7">würfle mit dem Spezial-Würfel.</option>
-                    <option value="rule3-8">bewege einen anderen Spieler 1 Feld zurück.</option>
+                    <option value="rule3-4">w&uuml;rfle erneut.</option>
+                    <option value="rule3-5">springe zum n&auml;chsten Spieler nach vorne.</option>
+                    <option value="rule3-6">gehe 1 Feld zur&uuml;ck.</option>
+                    <option value="rule3-7">w&uuml;rfle mit dem Spezial-W&uuml;rfel.</option>
+                    <option value="rule3-8">bewege einen anderen Spieler 1 Feld zur&uuml;ck.</option>
                 </select>
             </div>
             <button onclick="changeGroupRuleRulesGame()">Regel anpassen</button>
@@ -166,11 +178,12 @@
     </div>
 
     <div id="section-mimicgame" class="flex column g32" style="margin-left: 588px;">
-        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="changeSection('main')" class="tl-btn">Zur&uuml;ck</button>
         <div id="mimic-game-solution" class="text-center">
-            <h4 id="mimic-game-solution-text" style="margin-bottom: 24px;">Lösung:</h4>
+            <h4 id="mimic-game-solution-text" style="margin-bottom: 24px;">L&ouml;sung:</h4>
             <img id="mimic-game-img" src="">
         </div>
+        <h3 class="shadow" style="margin-bottom: 24px;">Mimik</h3>
         <div class="flex g32">
             <!-- TODO: change path to correct video -->
             <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
@@ -201,23 +214,74 @@
     </div>
 
     <div id="section-hilogame" class="flex column g32">
-        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="changeSection('main')" class="tl-btn">Zur&uuml;ck</button>
+        <h3 class="shadow" style="margin-bottom: 24px;">Hi-Lo</h3>
         <div class="flex g32">
             <!-- TODO: change path to correct video -->
             <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
             <button onclick="sendCommand('show-title')">Title<br>Screen</button>
         </div>
-        <hr>
     </div>
 
     <div id="section-finalgame" class="flex column g32">
-        <button onclick="changeSection('main')" class="tl-btn">Zurück</button>
+        <button onclick="changeSection('main')" class="tl-btn">Zur&uuml;ck</button>
+        <h3 class="shadow" style="margin-bottom: 24px;">Finale</h3>
         <div class="flex g32">
             <!-- TODO: change path to correct video -->
             <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
             <button onclick="sendCommand('show-title')">Title<br>Screen</button>
         </div>
         <hr>
+        <div class="flex g32 main-btn">
+            <button onclick="changeSection('finalgame-muehle')">Finale 1:<br>M&uuml;hle</button>
+            <button onclick="changeSection('finalgame-hexagon')">Finale 2:<br>Hexagon</button>
+        </div>
+        <div class="flex g32 main-btn">
+            <button onclick="changeSection('finalgame-dicepoker')">Finale 3:<br>W&uuml;rfelpoker</button>
+        </div>
+    </div>
+
+    <div id="section-finalgame-muehle" class="flex column g32">
+        <button onclick="changeSection('finalgame')" class="tl-btn">Zur&uuml;ck</button>
+        <h3 class="shadow" style="margin-bottom: 24px;">Finale 1: M&uuml;hle</h3>
+        <div class="flex g32">
+            <!-- TODO: change path to correct video -->
+            <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+            <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        </div>
+    </div>
+
+    <div id="section-finalgame-hexagon" class="flex column g32">
+        <button onclick="changeSection('finalgame')" class="tl-btn">Zur&uuml;ck</button>
+        <h3 class="shadow" style="margin-bottom: 24px;">Finale 2: Hexagon</h3>
+        <div class="flex g32">
+            <!-- TODO: change path to correct video -->
+            <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+            <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        </div>
+        <hr>
+        <button onclick="sendCommand('hexagon-game-display')">Hexagon<br>anzeigen</button>
+        <div class="flex g32">
+            <div class="flex g32">
+                <h3 class="shadow">Runde:</h3>
+                <input type="number" id="hexagon-round" class="w86 text-center" value="1" min="1" max="10">
+            </div>
+            <button onclick="sendCommand('hexagon-show-numbers', document.getElementById('hexagon-round').value - 1)">Zahlen anzeigen<br>(30 sec)</button>
+        </div>
+        <div class="flex g32">
+            <button onclick="sendCommand('hexagon-show-target', document.getElementById('hexagon-round').value - 1)">Gesuchte Summe<br>anzeigen</button>
+            <button onclick="sendCommand('hexagon-hide-target')">Gesuchte Summe<br>verstecken</button>
+        </div>
+    </div>
+
+    <div id="section-finalgame-dicepoker" class="flex column g32">
+        <button onclick="changeSection('finalgame')" class="tl-btn">Zur&uuml;ck</button>
+        <h3 class="shadow" style="margin-bottom: 24px;">Finale 3: W&uuml;rfelpoker</h3>
+        <div class="flex g32">
+            <!-- TODO: change path to correct video -->
+            <button onclick="playVideo('virus-game/testvid.mp4', 7123)">Anleitung abspielen</button>
+            <button onclick="sendCommand('show-title')">Title<br>Screen</button>
+        </div>
     </div>
 
     <div id="user-point-config" class="flex column g16">

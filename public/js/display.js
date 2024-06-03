@@ -577,3 +577,87 @@ socket.on('mimic-game-break', () => {
     pauseMimicGame = true;
     imgTag.style.opacity = 0;
 });
+
+
+// Hexagon Game
+
+// TODO: change numbers
+const hexagonNumbers = [
+    [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
+    [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,1],
+    [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,1,2],
+    [4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,1,2,3],
+    [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,1,2,3,4],
+    [6,7,8,9,10,11,12,13,14,15,16,17,18,19,1,2,3,4,5],
+    [7,8,9,10,11,12,13,14,15,16,17,18,19,1,2,3,4,5,6],
+    [8,9,10,11,12,13,14,15,16,17,18,19,1,2,3,4,5,6,7],
+    [9,10,11,12,13,14,15,16,17,18,19,1,2,3,4,5,6,7,8],
+    [10,11,12,13,14,15,16,17,18,19,1,2,3,4,5,6,7,8,9]
+];
+// TODO: change numbers
+const targetNumbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+const hexagonLetters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S'];
+
+// Show hexagon-section
+socket.on('hexagon-game-display', () => {
+    switchToSection('hexagon-game');
+});
+
+// Show numbers
+socket.on('hexagon-show-numbers', (rnd) => {
+    const targetNr = document.getElementById('hexagon-target-nr');
+    targetNr.innerHTML = 'X';
+
+    setTimeout(() => {
+        changeToNumbersHexagonGame(rnd, 0);
+    }, 500);
+    setTimeout(() => {
+        setTimeout(() => {
+            changeToLettersHexagonGame(0);
+        }, 500);
+    }, 30000);
+});
+
+// Change numbers with delay in between
+function changeToNumbersHexagonGame(rnd, idx) {
+    if (idx < 19) {
+        const hex = document.getElementById(`hexagon-${idx}`);
+        const hexShape = document.getElementById(`hexagon-shape-${idx}`);
+
+        hex.innerHTML = hexagonNumbers[rnd][idx];
+        hex.style.color = '#000';
+        hexShape.style.backgroundColor = '#fff';
+        idx = parseInt(idx) + 1;
+        setTimeout(() => {
+            changeToNumbersHexagonGame(rnd, idx);
+        }, 10);
+    }
+}
+
+// Change letters with delay in between
+function changeToLettersHexagonGame(idx) {
+    if (idx < 19) {
+        const hex = document.getElementById(`hexagon-${idx}`);
+        const hexShape = document.getElementById(`hexagon-shape-${idx}`);
+
+        hex.innerHTML = hexagonLetters[idx];
+        hex.style.color = '#fff';
+        hexShape.style.backgroundColor = '#000';
+        idx = parseInt(idx) + 1;
+        setTimeout(() => {
+            changeToLettersHexagonGame(idx);
+        }, 10);
+    }
+}
+
+// Show target
+socket.on('hexagon-show-target', (trgt) => {
+    const targetNr = document.getElementById('hexagon-target-nr');
+    targetNr.innerHTML = targetNumbers[trgt];
+});
+
+// Hide target
+socket.on('hexagon-hide-target', () => {
+    const targetNr = document.getElementById('hexagon-target-nr');
+    targetNr.innerHTML = 'X';
+});
